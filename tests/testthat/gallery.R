@@ -2,7 +2,12 @@
 
 # Imports ---------------------------------------------------------------------
 
+library(ggplot2)
+library(grDevices)
 library(magrittr)
+library(purrr)
+library(readr)
+library(stringr)
 
 # Constants -------------------------------------------------------------------
 
@@ -26,7 +31,7 @@ SVG_HEIGHT <- 5
 build_example <- function(example_name, example_func) {
 
     svgfile <- file.path(GALLERY_DIR, stringr::str_glue("{example_name}.svg"))
-    svg(filename = svgfile, width = SVG_WIDTH, height = SVG_HEIGHT)
+    grDevices::svg(filename = svgfile, width = SVG_WIDTH, height = SVG_HEIGHT)
     print(example_func())
     dev.off()
 }

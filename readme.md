@@ -66,6 +66,7 @@ Use `scale_color_pilot()` or `scale_fill_pilot()` as approriate. Both functions 
 ---
 
 _pilot_::__scale_color_pilot__(_palette = "main"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
+
 _pilot_::__scale_fill_pilot__(_palette = "main"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
 
 Sets the scales with the following arguments:

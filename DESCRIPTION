@@ -1,0 +1,20 @@
+Package: pilot
+Type: Package
+Title: A minimal ggplot2 theme with an accessible discrete color palette
+Version: 0.1.0
+Author: Oliver Hawkins
+Maintainer: Oliver Hawkins <oli@olihawkins.com>
+Description: A minimal ggplot2 theme with an accessible discrete color palette.
+License: BSD_3_clause + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    ggplot2,
+    ggthemes,
+    magrittr,
+    purrr,
+    rlang,
+    stringr
+RoxygenNote: 6.1.1
+Suggests: 
+    testthat

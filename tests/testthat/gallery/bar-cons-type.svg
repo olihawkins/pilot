@@ -304,7 +304,7 @@
   <path d="M 234 67.6875 L 309 67.6875 L 309 282 L 234 282 Z M 234 67.6875 "/>
 </clipPath>
 </defs>
-<g id="surface11">
+<g id="surface599">
 <rect x="0" y="0" width="576" height="360" style="fill:rgb(100%,100%,100%);fill-opacity:1;stroke:none;"/>
 <rect x="0" y="0" width="576" height="360" style="fill:rgb(100%,100%,100%);fill-opacity:1;stroke:none;"/>
 <path style="fill:none;stroke-width:0.0075;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(100%,100%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 360 L 576 360 L 576 0 L 0 0 Z M 0 360 "/>
@@ -331,8 +331,8 @@
 <g clip-path="url(#clip7)" clip-rule="nonzero">
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(59.607843%,94.117647%,59.607843%);fill-opacity:1;" d="M 234.273438 281.820312 L 308.503906 281.820312 L 308.503906 67.6875 L 234.273438 67.6875 Z M 234.273438 281.820312 "/>
 </g>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,60%,0%);fill-opacity:1;" d="M 316.75 281.820312 L 390.980469 281.820312 L 390.980469 80.765625 L 316.75 80.765625 Z M 316.75 281.820312 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,62.745098%,0%);fill-opacity:1;" d="M 399.226562 281.820312 L 473.457031 281.820312 L 473.457031 173.9375 L 399.226562 173.9375 Z M 399.226562 281.820312 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,62.745098%,0%);fill-opacity:1;" d="M 316.75 281.820312 L 390.980469 281.820312 L 390.980469 80.765625 L 316.75 80.765625 Z M 316.75 281.820312 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,60%,0%);fill-opacity:1;" d="M 399.226562 281.820312 L 473.457031 281.820312 L 473.457031 173.9375 L 399.226562 173.9375 Z M 399.226562 281.820312 "/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(75.294118%,0%,37.647059%);fill-opacity:1;" d="M 481.707031 281.820312 L 555.9375 281.820312 L 555.9375 79.128906 L 481.707031 79.128906 Z M 481.707031 281.820312 "/>
 <g style="fill:rgb(25.098039%,25.098039%,25.098039%);fill-opacity:1;">
   <use xlink:href="#glyph0-1" x="51.09375" y="285.710938"/>

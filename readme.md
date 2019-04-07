@@ -26,11 +26,11 @@ The base color names are:
 * __blue__
 * __sky__
 * __mint__
-* __green__
 * __yellow__
+* __green__
 * __magenta__
 
-These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors (see below). However, care should be taken in how you use these scales. For convenience in exploratory data analysis they support ggplot2's color interpolation feature. But expanding the six color palette to represent more than six categories means you are likely to create new colors that are no longer visually distinct to people with color blindness. To ensure the colors remain distinct, in charts for publication you should use the scales with discrete data that has the same number of categories as the palette you use.
+These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors (see below). However, care should be taken in how you use these scales. For convenience these scales support ggplot2's color interpolation feature. But expanding the six color palette to represent more than six categories risks creating new colors that are no longer visually distinct to people with color blindness. The sequence of colours in the main palette has been chosen to reduce this risk, but if you want ensure the colors remain distinct you should use these scales with discrete data that has the same number of categories as the palette you choose.
 
 ## Theme
 
@@ -79,7 +79,7 @@ Sets the scales with the following arguments:
     * _dark_ - blue, green, magenta
     * _light_ - sky, mint, yellow
     * _blugrn_ - blue, sky, mint, green
-    * _five_ - blue, sky, mint, green, yellow
+    * _five_ - blue, sky, mint, yellow, green
 * __discrete__ Boolean to indicate if color aesthetic is discrete.
 * __reverse__ Boolean to indicate whether palette should be reversed.
 * __...__ Additional arguments passed to `discrete_scale` or `scale_color_gradientn`, depending on the value of `discrete`.

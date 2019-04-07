@@ -32,7 +32,7 @@ get_pilot_palette <- function(
         dark =   get_pilot_colors("blue", "green", "magenta"),
         light =  get_pilot_colors("sky", "mint", "yellow"),
         blugrn = get_pilot_colors("blue", "sky", "mint", "green"),
-        five = get_pilot_colors("blue", "sky", "mint", "green", "yellow"))
+        five = get_pilot_colors("blue", "sky", "mint", "yellow", "green"))
 
     p <- pilot_palettes[[palette]]
     if (reverse) p <- rev(p)

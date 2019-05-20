@@ -19,6 +19,7 @@ GALLERY_DIR <- "gallery"
 GALLERY_TEST_FILE <- file.path(GALLERY_DIR, "test.svg")
 GALLERY_SCATTER_MPG_NAME <- file.path("scatter-mpg")
 GALLERY_SCATTER_CONS_TYPE_NAME <- file.path("scatter-cons-type")
+GALLERY_SCATTER_CONS_FACET_NAME <- file.path("scatter-cons-facet")
 GALLERY_BAR_CONS_TYPE_NAME <- file.path("bar-cons-type")
 GALLERY_BAR_CONS_REGION_NAME <- file.path("bar-cons-region")
 GALLERY_LINE_STOCKS_NAME <- file.path("line-stocks")
@@ -41,6 +42,7 @@ build_gallery <- function() {
     examples <- list()
     examples[[GALLERY_SCATTER_MPG_NAME]] = example_scatter_mpg
     examples[[GALLERY_SCATTER_CONS_TYPE_NAME]] = example_scatter_cons_type
+    examples[[GALLERY_SCATTER_CONS_FACET_NAME]] = example_scatter_cons_facet
     examples[[GALLERY_BAR_CONS_TYPE_NAME]] = example_bar_cons_type
     examples[[GALLERY_BAR_CONS_REGION_NAME]] = example_bar_cons_region
     examples[[GALLERY_LINE_STOCKS_NAME]] = example_line_stocks
@@ -135,6 +137,36 @@ example_scatter_cons_type <- function() {
         ggplot2::coord_cartesian(expand = FALSE) +
         theme_pilot() +
         scale_color_pilot()
+}
+
+example_scatter_cons_facet <- function() {
+
+    types <- c("London", "Other city", "Large town",
+               "Medium town", "Small town", "Village")
+    cs <- suppressMessages(readr::read_csv(DATASET_CON_FILE))
+    cs <- cs %>% dplyr::filter(! is.na(classification))
+    cs$type <- factor(cs$classification, levels = types)
+
+    p <- ggplot2::ggplot(cs, ggplot2::aes(
+            median_age, turnout, color = type)) +
+        ggplot2::geom_point() +
+        ggplot2::facet_wrap(~ type) +
+        ggplot2::labs(
+            x = "Median age",
+            y = "Turnout",
+            title = "Turnout was higher in older, less urban constituencies",
+            subtitle = "Constituencies by age, turnout and settlement class, 2017",
+            color = "Settlement class",
+            caption = "@commonslibrary") +
+        ggplot2::scale_x_continuous(
+            limits = c(25, 55)) +
+        ggplot2::scale_y_continuous(
+            limits = c(0.5, 0.85),
+            label = scales::percent_format(accuracy = 1)) +
+        ggplot2::coord_cartesian(expand = FALSE) +
+        theme_pilot() +
+        scale_color_pilot() +
+        ggplot2::theme(legend.position ="None")
 }
 
 example_bar_cons_type <- function() {

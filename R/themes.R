@@ -2,6 +2,8 @@
 
 #' Pilot theme
 #'
+#' @param background A hexadecimal color code for the canvas color. The default
+#'   is "#ffffff".
 #' @param base_family The name of the font family to use for the base font.
 #' @param title_family The name of the font family to use for the title font.
 #' @param subtitle Boolean to indicate whether the plot has a subtitle. This
@@ -25,11 +27,12 @@ theme_pilot <- function (
     title_family = "Avenir Next Demi Bold",
     subtitle = TRUE,
     axes = "",
-    grid = "hv") {
+    grid = "hv",
+    background = "#ffffff") {
 
     theme_pilot <- ggplot2::theme(
             plot.background = ggplot2::element_rect(
-                fill = "#ffffff",
+                fill = background,
                 size = 0),
             plot.margin = ggplot2::margin(
                 t = 16,
@@ -67,33 +70,33 @@ theme_pilot <- function (
                     r = 0,
                     b = 0,
                     l = 0, unit = "pt")),
+            panel.spacing = ggplot2::unit(20, "pt"),
             panel.border = ggplot2::element_blank(),
             panel.background = ggplot2::element_blank(),
+            panel.grid = ggplot2::element_blank(),
             panel.grid.major = ggplot2::element_blank(),
             panel.grid.minor = ggplot2::element_blank(),
+            axis.line = ggplot2::element_blank(),
             axis.line.x.top = ggplot2::element_blank(),
             axis.line.y.right = ggplot2::element_blank(),
             axis.line.x.bottom = ggplot2::element_blank(),
             axis.line.y.left = ggplot2::element_blank(),
             axis.ticks = ggplot2::element_blank(),
-            axis.title.x = ggplot2::element_text(
+            axis.title = ggplot2::element_text(
                 family = base_family,
                 color = "#404040",
-                size = 11,
+                size = 11),
+            axis.title.x = ggplot2::element_text(
                 margin = ggplot2::margin(
                     t = 12,
                     r = 0,
                     b = 0,
                     l = 0, unit = "pt")),
             axis.title.x.top = ggplot2::element_text(
-                family = base_family,
                 margin = ggplot2::margin(
                     t = 0,
                     b = 12, unit = "pt")),
             axis.title.y = ggplot2::element_text(
-                family = base_family,
-                color = "#404040",
-                size = 11,
                 angle = 90,
                 margin = ggplot2::margin(
                     t = 0,
@@ -101,7 +104,7 @@ theme_pilot <- function (
                     b = 0,
                     l = 0, unit = "pt")),
             axis.title.y.right = ggplot2::element_text(
-                family = base_family,
+                angle = 90,
                 margin = ggplot2::margin(
                     r = 0,
                     l = 12, unit = "pt")),
@@ -110,19 +113,16 @@ theme_pilot <- function (
                 color = "#404040",
                 size = 11),
             axis.text.x = ggplot2::element_text(
-                family = base_family,
                 margin = ggplot2::margin(
                     t = 5,
                     r = 0,
                     b = 0,
                     l = 0, unit = "pt")),
             axis.text.x.top = ggplot2::element_text(
-                family = base_family,
                 margin = ggplot2::margin(
                     t = 0,
                     b = 5, unit = "pt")),
             axis.text.y = ggplot2::element_text(
-                family = base_family,
                 hjust = 1,
                 margin = ggplot2::margin(
                     t = 0,
@@ -130,18 +130,17 @@ theme_pilot <- function (
                     b = 0,
                     l = 0, unit = "pt")),
             axis.text.y.right = ggplot2::element_text(
-                family = base_family,
                 hjust = 0,
                 margin = ggplot2::margin(
                     r = 0,
                     l = 5, unit = "pt")),
             legend.background = ggplot2::element_rect(
                 color = NULL,
-                fill = "#ffffff",
+                fill = background,
                 size = 0),
             legend.key = ggplot2::element_rect(
                 color = NULL,
-                fill = "#ffffff"),
+                fill = background),
             legend.title = ggplot2::element_text(
                 family = base_family,
                 color = "#404040",
@@ -150,7 +149,15 @@ theme_pilot <- function (
             legend.text = ggplot2::element_text(
                 family = base_family,
                 color = "#404040",
-                size = 10)
+                size = 10),
+            strip.background = ggplot2::element_rect(
+                color = background,
+                fill = background),
+            strip.text = ggplot2::element_text(
+                family = base_family,
+                color = "#303030",
+                size = 10,
+                face = "bold",)
         )
 
     # Subtitle

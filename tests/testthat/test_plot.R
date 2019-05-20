@@ -25,6 +25,12 @@ test_that("theme and scales render example_bar_cons_type correctly", {
         example_bar_cons_type))
 })
 
+test_that("theme and scales render example_scatter_cons_facet correctly", {
+    expect_true(compare_examples(
+        GALLERY_SCATTER_CONS_FACET_NAME,
+        example_scatter_cons_facet))
+})
+
 test_that("theme and scales render example_bar_cons_region correctly", {
     expect_true(compare_examples(
         GALLERY_BAR_CONS_REGION_NAME,

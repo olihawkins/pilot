@@ -6,7 +6,7 @@
 \usage{
 theme_pilot(base_family = "Avenir Next",
   title_family = "Avenir Next Demi Bold", subtitle = TRUE, axes = "",
-  grid = "hv")
+  grid = "hv", background = "#ffffff")
 }
 \arguments{
 \item{base_family}{The name of the font family to use for the base font.}
@@ -29,6 +29,9 @@ default.}
 which gridlines to show by including a particular character in the string:
 "h" for horizontal, "v" for vertical. The default is "h", meaning
 only the horizontal gridlines are shown by default.}
+
+\item{background}{A hexadecimal color code for the canvas color. The default
+is "#ffffff".}
 }
 \description{
 Pilot theme

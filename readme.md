@@ -47,10 +47,11 @@ Or apply the theme directly to a specific plot with `+ theme_pilot()`.
 
 ---
 
-_pilot_::__theme_pilot__(_base_family = "Avenir Next"_, _title_family = "Avenir Next Demi Bold"_, _subtitle = TRUE_, _axes = ""_, _grid = "hv"_)
+_pilot_::__theme_pilot__(_background = "#ffffff"_, _base_family = "Avenir Next"_, _title_family = "Avenir Next Demi Bold"_, _subtitle = TRUE_, _axes = ""_, _grid = "hv"_)
 
 Sets the theme with the following arguments:
 
+* __background__  A hexadecimal color code for the canvas color. The default is "#ffffff".
 * __base_family__ The font family name to use for the base font as a string. The default is "Avenir Next".
 * __title_family__ The font family name to use for the chart title font as a string. The default is "Avenir Next Demi Bold".
 * __subtitle__ Boolean to indicate whether the plot has a subtitle. This argument controls the spacing after the title, so that it is smaller when a subtitle is present. The default is TRUE.

@@ -19,7 +19,7 @@ devtools::install_github("olihawkins/pilot")
 
 This theme includes an accessible discrete color palette, comprising six colors that are visually distinct to people with the most commmon types of color blindness.
 
-These colors are available in a named vector called `pilot_colors`. You can use these with `scale_manual()` in ggplot2 to map specific colors to categorical variables.
+These colors are available in a named vector called `pilot_colors`.
 
 The base color names are:
 
@@ -29,6 +29,14 @@ The base color names are:
 * __yellow__
 * __green__
 * __magenta__
+
+You can use the `pilot_color` function to return the unnamed hex code value for a given name. This makes it easy to map specific colors to categorical variables using the `scale_color_manual()` and `scale_fill_manual()` functions.
+
+```r
+scale_color_manual(values = c(
+    "a" = pilot_color("blue"),
+    "b" = pilot_color("yellow"))
+```
 
 These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors (see below). However, care should be taken in how you use these scales. For convenience these scales support ggplot2's color interpolation feature. But expanding the six color palette to represent more than six categories risks creating new colors that are no longer visually distinct to people with color blindness. The sequence of colours in the main palette has been chosen to reduce this risk, but if you want ensure the colors remain distinct you should use these scales with discrete data that has the same number of categories as the palette you choose.
 

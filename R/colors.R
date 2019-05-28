@@ -11,3 +11,10 @@ pilot_colors <- c(
     "green"  = "#009900",
     "magenta" = "#c00060")
 
+#' Get the hex code for a pilot color
+#' @param color_name The name of the color.
+#' @export
+
+pilot_color <- function (color_name) {
+    unname(pilot_colors[color_name])
+}

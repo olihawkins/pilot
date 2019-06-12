@@ -35,10 +35,10 @@ theme_pilot <- function (
                 fill = background,
                 size = 0),
             plot.margin = ggplot2::margin(
-                t = 16,
-                r = 16,
-                b = 16,
-                l = 16, unit = "pt"),
+                t = 20,
+                r = 20,
+                b = 20,
+                l = 20, unit = "pt"),
             plot.title = ggplot2::element_text(
                 family = title_family,
                 color = "#404040",

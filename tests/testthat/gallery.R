@@ -157,7 +157,7 @@ example_scatter_cons_facet <- function() {
             title = "Turnout was higher in older, less urban constituencies",
             subtitle = "Constituencies by age, turnout and settlement class, 2017",
             color = "Settlement class",
-            caption = "@commonslibrary") +
+            caption = "@olihawkins") +
         ggplot2::scale_x_continuous(
             limits = c(25, 55)) +
         ggplot2::scale_y_continuous(
@@ -212,7 +212,7 @@ example_bar_cons_region <- function() {
             expand =ggplot2::expand_scale(add = c(0.5, 0.5))) +
         ggplot2::scale_y_continuous(expand = c(0,0)) +
         theme_pilot(grid = "h") +
-        scale_fill_pilot(guide = "none")
+        scale_fill_pilot(palette = "blugrn", guide = "none")
 }
 
 example_line_stocks <- function() {

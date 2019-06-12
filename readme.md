@@ -91,7 +91,7 @@ Sets the scales with the following arguments:
     * _five_ - blue, sky, mint, yellow, green
 * __discrete__ Boolean to indicate if color aesthetic is discrete.
 * __reverse__ Boolean to indicate whether palette should be reversed.
-* __...__ Additional arguments passed to `discrete_scale` or `scale_color_gradientn`, depending on the value of `discrete`.
+* __...__ Additional arguments passed to `discrete_scale` or `scale_color_gradient`, depending on the value of `discrete`.
 
 ---
 

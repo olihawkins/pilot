@@ -1,5 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^docs
-^readme.md
+^docs$
+^examples$
+^readme\.md$
 

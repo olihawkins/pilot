@@ -3,7 +3,6 @@
 \docType{package}
 \name{pilot}
 \alias{pilot}
-\alias{pilot-package}
 \title{pilot: Personal plotting tools}
 \description{
 Plotting tools for personal projects.

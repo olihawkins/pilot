@@ -4,22 +4,20 @@ pilot is a general purpose ggplot2 theme with an accessible discrete color palet
 
 ## Fonts
 
-This theme uses "Avenir Next" and "Avenir Next Demi Bold" as the base and title fonts by default. Use the `base_family` and `title_family` arguments to `theme_pilot()` to use other fonts.
+The theme uses "Avenir Next" and "Avenir Next Demi Bold" for the text elements of a plot by default. This can be changed when the theme function is called. Use `?theme_pilot` to see the documentation showing the full list of arguments that can be used to customise the fonts. 
 
 ## Installation
 
-Install from GitHub using devtools.
+Install from GitHub using remotes.
 
 ``` r
-install.packages("devtools")
-devtools::install_github("olihawkins/pilot")
+install.packages("remotes")
+remotes::install_github("olihawkins/pilot")
 ```
 
 ## Colors
 
-This theme includes an accessible discrete color palette, comprising six colors that are visually distinct to people with the most commmon types of color blindness.
-
-These colors are available in a named vector called `pilot_colors`.
+This theme includes an accessible discrete color palette, comprising six colors that are visually distinct to people with the most commmon types of color blindness. These colors are available in a named vector called `pilot_colors`.
 
 The base color names are:
 
@@ -42,29 +40,18 @@ These colors are also avaialable as ggplot2 scales with a range of palettes repr
 
 ## Theme
 
-Set the theme for the session with:
-
-```r
-library(ggplot2)
-library(pilot)
-
-theme_set(theme_pilot())
-```
-
-Or apply the theme directly to a specific plot with `+ theme_pilot()`.
+Apply the theme to a plot with `theme_pilot()`. There are a large number of arguments you can use to configure the components of the theme. Use `?theme_pilot` to see the full list of arguments. The principal arguments are documented below.
 
 ---
 
-_pilot_::__theme_pilot__(_background = "#ffffff"_, _base_family = "Avenir Next"_, _title_family = "Avenir Next Demi Bold"_, _subtitle = TRUE_, _axes = ""_, _grid = "hv"_)
+_pilot_::__theme_pilot__(_axes = ""_, _grid = "hv"_, _legend_position = "right"_, _caption_position = "right"_, _..._)
 
-Sets the theme with the following arguments:
+Set the theme with the following arguments:
 
-* __background__  A hexadecimal color code for the canvas color. The default is "#ffffff".
-* __base_family__ The font family name to use for the base font as a string. The default is "Avenir Next".
-* __title_family__ The font family name to use for the chart title font as a string. The default is "Avenir Next Demi Bold".
-* __subtitle__ Boolean to indicate whether the plot has a subtitle. This argument controls the spacing after the title, so that it is smaller when a subtitle is present. The default is TRUE.
-* __axes__ A string to indicate which axes should have axis lines and ticks. Designate the axes to show by including a particular character in the string: "t" for top, "r" for right, "b" for bottom, "l" for left. You will need to position the axes correctly with ggplot, and turn on any secondary axes, in order for the specified axes lines and ticks to be displayed. The default is "", meaning no axes are shown by default.
-* __grid__ A string to indicate which gridlines should be shown. Designate which gridlines to show by including a particular character in the string: "h" for horizontal, "v" for vertical. The default is "hv", meaning both gridlines are shown by default.
+* __axes__ A string indicating which axes should have lines and ticks. Specify which axes to show by including the matching characters in the string: "t" for top, "r" for right, "b" for bottom, "l" for left. You will need to ensure this argument is consistent with the axes settings in your plot for the lines and ticks to be displayed. The default is an empty string, meaning ticks and lines for the bottom and left axes are shown by default.
+* __grid__ A string indicating which gridlines should be shown. Specify the gridlines to show by including the matching characters in the string: "h" for horizontal, "v" for vertical. The default is "hv", meaning both gridlines are shown by default.
+* __legend_position__ A string indicating the position of the legend. Valid positions are "top", "right", "bottom", "left", "top-right", "top-left", "bottom-right", "bottom-left", and "none". The default is "right".
+* __caption_position__ A string indicating the horizontal position of the caption. Valid positions are "left" or "right". The default is "right".
 
 ---
 
@@ -75,7 +62,6 @@ Use `scale_color_pilot()` or `scale_fill_pilot()` as approriate. Both functions 
 ---
 
 _pilot_::__scale_color_pilot__(_palette = "main"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
-
 _pilot_::__scale_fill_pilot__(_palette = "main"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
 
 Sets the scales with the following arguments:

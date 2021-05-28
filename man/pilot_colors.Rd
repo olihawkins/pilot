@@ -5,7 +5,7 @@
 \alias{pilot_colors}
 \title{Pilot colors}
 \format{
-An object of class \code{character} of length 6.
+An object of class \code{character} of length 7.
 }
 \usage{
 pilot_colors

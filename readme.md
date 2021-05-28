@@ -17,26 +17,27 @@ remotes::install_github("olihawkins/pilot")
 
 ## Colors
 
-This theme includes an accessible discrete color palette, comprising six colors that are visually distinct to people with the most commmon types of color blindness. These colors are available in a named vector called `pilot_colors`.
+This theme includes an accessible discrete color palette, comprising seven colors that are visually distinct to people with the most commmon types of color blindness. These colors are available in a named vector called `pilot_colors`.
 
 The base color names are:
 
+* __navy__
 * __blue__
-* __sky__
-* __mint__
-* __yellow__
+* __brown__
 * __green__
-* __magenta__
+* __yellow__
+* __purple__
+* __orange__
 
 You can use the `pilot_color` function to return the unnamed hex code value for a given name. This makes it easy to map specific colors to categorical variables using the `scale_color_manual()` and `scale_fill_manual()` functions.
 
 ```r
 scale_color_manual(values = c(
-    "a" = pilot_color("blue"),
-    "b" = pilot_color("yellow")))
+    "a" = pilot_color("navy"),
+    "b" = pilot_color("blue")))
 ```
 
-These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors (see below). However, care should be taken in how you use these scales. For convenience these scales support ggplot2's color interpolation feature. But expanding the six color palette to represent more than six categories risks creating new colors that are no longer visually distinct to people with color blindness. The sequence of colours in the main palette has been chosen to reduce this risk, but if you want ensure the colors remain distinct you should use these scales with discrete data that has the same number of categories as the palette you choose.
+These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors (see below). However, care should be taken in how you use these scales. For convenience these scales support ggplot2's color interpolation feature. But expanding the seven color palette to represent more than seven categories risks creating new colors that are no longer visually distinct to people with color blindness. The sequence of colours in the main palette has been chosen to reduce this risk, but if you want ensure the colors remain distinct you should use these scales with discrete data that has the same number of categories as the palette you choose.
 
 ## Theme
 
@@ -64,17 +65,15 @@ Use `scale_color_pilot()` or `scale_fill_pilot()` as approriate. Both functions 
 _pilot_::__scale_color_pilot__(_palette = "main"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
 _pilot_::__scale_fill_pilot__(_palette = "main"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
 
-Sets the scales with the following arguments:
+Sets the scales with the following arguments. The default palette is "five".
 
 * __palette__ The name of a palette. Valid names are:
-    * _main_ - The main six color palette
-    * _blues_ - blue, sky
-    * _greens_ - green, mint
-    * _blumag_ - blue, magenta
-    * _dark_ - blue, green, magenta
-    * _light_ - sky, mint, yellow
-    * _blugrn_ - blue, sky, mint, green
-    * _five_ - blue, sky, mint, yellow, green
+    * _two_ - navy, blue
+    * _three_ - navy, blue, brown
+    * _four_ - navy, blue, brown, green
+    * _five_ - navy, blue, brown, green, yellow
+    * _six_ - navy, blue, brown, green, yellow, purple
+    * _seven_ - navy, blue, brown, green, yellow, orange
 * __discrete__ Boolean to indicate if color aesthetic is discrete.
 * __reverse__ Boolean to indicate whether palette should be reversed.
 * __...__ Additional arguments passed to `discrete_scale` or `scale_color_gradient`, depending on the value of `discrete`.

@@ -21,18 +21,43 @@ get_pilot_colors <- function(...) {
 #' @export
 
 get_pilot_palette <- function(
-    palette = "main",
+    palette = "five",
     reverse = FALSE, ...) {
 
     pilot_palettes <- list(
-        main =   get_pilot_colors(),
-        blues =  get_pilot_colors("blue", "sky"),
-        greens = get_pilot_colors("green", "mint"),
-        blumag = get_pilot_colors("blue", "magenta"),
-        dark =   get_pilot_colors("blue", "green", "magenta"),
-        light =  get_pilot_colors("sky", "mint", "yellow"),
-        blugrn = get_pilot_colors("blue", "sky", "mint", "green"),
-        five = get_pilot_colors("blue", "sky", "mint", "yellow", "green"))
+        two =   get_pilot_colors(
+            "navy",
+            "blue"),
+        three =  get_pilot_colors(
+            "navy",
+            "blue",
+            "brown"),
+        four = get_pilot_colors(
+            "navy",
+            "blue",
+            "brown",
+            "green"),
+        five = get_pilot_colors(
+            "navy",
+            "blue",
+            "brown",
+            "green",
+            "yellow"),
+        six = get_pilot_colors(
+            "navy",
+            "blue",
+            "brown",
+            "green",
+            "yellow",
+            "purple"),
+        seven = get_pilot_colors(
+            "navy",
+            "blue",
+            "brown",
+            "green",
+            "yellow",
+            "purple",
+            "orange"))
 
     p <- pilot_palettes[[palette]]
     if (reverse) p <- rev(p)

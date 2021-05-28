@@ -78,7 +78,7 @@ example_bar_cons_region <- function() {
     plot <- ggplot(data = df) +
         geom_bar(
             mapping = aes(x = region),
-            fill = pilot_color("magenta")) +
+            fill = pilot_color("navy")) +
         geom_text_pilot(
             stat = "count",
             mapping = aes(x = region, label = ..count..),
@@ -121,8 +121,8 @@ example_line_migration <- function() {
         coord_cartesian(expand = FALSE) +
         theme_pilot(axes = "b", grid = "h") +
         scale_color_manual(values = c(
-            "Immigration" = pilot_color("blue"),
-            "Net migration" = pilot_color("sky"))) +
+            "Immigration" = pilot_color("navy"),
+            "Net migration" = pilot_color("blue"))) +
         #theme(legend.position = "top", legend.direction = "horizontal")
         theme(
             legend.position = c(1, 0.98),
@@ -161,13 +161,13 @@ example_bar_migration <- function() {
             caption_position = "left") +
         scale_fill_manual(values = c(
             "British" = pilot_color("yellow"),
-            "EU" = pilot_color("blue"),
-            "Non-EU" = pilot_color("sky")))
+            "EU" = pilot_color("navy"),
+            "Non-EU" = pilot_color("blue")))
 
     plot <- add_pilot_titles(
         plot,
         title = "Immigration is stable but the composition has changed",
-        subtitle = "Immigration by nationality in each year ending September, Thousands")
+        subtitle = "Immigration by nationality in each year ending September (000s)")
 }
 
 example_area_nurses <- function() {
@@ -209,8 +209,8 @@ example_area_nurses <- function() {
             hjust = 0) +
         theme_pilot(axes = "b", grid = "h") +
         scale_fill_manual(values = c(
-            "neonatal" = pilot_color("sky"),
-            "maternity" = pilot_color("blue"))) +
+            "neonatal" = pilot_color("green"),
+            "maternity" = pilot_color("navy"))) +
         theme(legend.position = "none")
 
     plot <- add_pilot_titles(
@@ -246,12 +246,12 @@ example_scatter_cons_type <- function() {
         coord_cartesian(expand = FALSE) +
         theme_pilot(grid = "hv") +
         scale_color_manual(values = c(
-            "London" = pilot_color("blue"),
-            "Other city" = pilot_color("sky"),
-            "Large town" = pilot_color("mint"),
-            "Medium town" = pilot_color("yellow"),
-            "Small town" = pilot_color("green"),
-            "Village" = pilot_color("magenta")))
+            "London" = pilot_color("navy"),
+            "Other city" = pilot_color("blue"),
+            "Large town" = pilot_color("brown"),
+            "Medium town" = pilot_color("green"),
+            "Small town" = pilot_color("yellow"),
+            "Village" = pilot_color("purple")))
 
     plot <- add_pilot_titles(
         plot,
@@ -288,12 +288,12 @@ example_scatter_cons_facet <- function() {
         coord_cartesian(expand = FALSE) +
         theme_pilot(axes = "", grid = "hv") +
         scale_color_manual(values = c(
-            "London" = pilot_color("blue"),
-            "Other city" = pilot_color("sky"),
-            "Large town" = pilot_color("mint"),
-            "Medium town" = pilot_color("yellow"),
-            "Small town" = pilot_color("green"),
-            "Village" = pilot_color("magenta"))) +
+            "London" = pilot_color("navy"),
+            "Other city" = pilot_color("blue"),
+            "Large town" = pilot_color("brown"),
+            "Medium town" = pilot_color("green"),
+            "Small town" = pilot_color("orange"),
+            "Village" = pilot_color("purple"))) +
         theme(legend.position ="None")
 
     plot <- add_pilot_titles(

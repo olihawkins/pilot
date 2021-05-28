@@ -4,7 +4,7 @@
 \alias{get_pilot_palette}
 \title{Return a function which interpolates a pilot color palette}
 \usage{
-get_pilot_palette(palette = "main", reverse = FALSE, ...)
+get_pilot_palette(palette = "five", reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Name of palette in \code{pilot_palettes}.}

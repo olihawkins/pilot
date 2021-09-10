@@ -4,7 +4,7 @@ pilot is a general purpose ggplot2 theme with an accessible discrete color palet
 
 ## Fonts
 
-The theme uses "Avenir Next" and "Avenir Next Demi Bold" for the text elements of a plot by default. This can be changed when the theme function is called. Use `?theme_pilot` to see the documentation showing the full list of arguments that can be used to customise the fonts. 
+The theme uses "Trebuchet MS" for the text elements of a plot by default. This font was chosen as the best looking font that is available natively on both MacOS and Windows. This can be changed when the theme function is called. Use `?theme_pilot` to see the documentation showing the full list of arguments that can be used to customise the fonts. 
 
 ## Installation
 

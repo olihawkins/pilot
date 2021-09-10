@@ -11,7 +11,7 @@
 #' @param color An RGB hex string indicating the color to use for the text. The
 #'   default is "#ffffff".
 #' @param family A string indicating the font family to use for the text. The
-#'   default is "Avenir Next".
+#'   default is "Trebuchet MS".
 #' @param fontface A string indicating the font face to use for the text. The
 #'  default is "bold".
 #' @param ... Any other arguments passed to \code{geom_text}.
@@ -19,8 +19,8 @@
 
 geom_text_pilot <- function(
     color = "#ffffff",
-    family = "Avenir Next Demi Bold",
-    fontface = "plain",
+    family = "Trebuchet MS",
+    fontface = "bold",
     ...) {
 
     ggplot2::geom_text(
@@ -50,7 +50,7 @@ geom_text_pilot <- function(
 #'
 annotate_pilot <- function(
     color = "#404040",
-    family = "Avenir Next",
+    family = "Trebuchet MS",
     fontface = "plain",
     size = 5,
     ...) {

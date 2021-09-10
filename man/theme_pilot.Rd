@@ -9,14 +9,14 @@ theme_pilot(
   grid = "hv",
   legend_position = "right",
   caption_position = "right",
-  title_family = "Avenir Next Demi Bold",
-  subtitle_family = "Avenir Next",
-  axis_title_family = "Avenir Next",
-  axis_text_family = "Avenir Next",
-  legend_title_family = "Avenir Next",
-  legend_text_family = "Avenir Next",
-  facet_title_family = "Avenir Next",
-  caption_family = "Avenir Next",
+  title_family = "Trebuchet MS",
+  subtitle_family = "Trebuchet MS",
+  axis_title_family = "Trebuchet MS",
+  axis_text_family = "Trebuchet MS",
+  legend_title_family = "Trebuchet MS",
+  legend_text_family = "Trebuchet MS",
+  facet_title_family = "Trebuchet MS",
+  caption_family = "Trebuchet MS",
   title_size = 17,
   subtitle_size = 12,
   axis_title_size = 11,
@@ -60,28 +60,28 @@ positions are "top", "right", "bottom", "left", "top-right", "top-left",
 caption. Valid positions are "left" or "right". The default is "right".}
 
 \item{title_family}{A string indicating the font-family to use for the
-title. The default is "Avenir Next Demi Bold".}
+title. The default is "Trebuchet MS".}
 
 \item{subtitle_family}{A string indicating the font-family to use for the
-subtitle. The default is "Avenir Next".}
+subtitle. The default is "Trebuchet MS".}
 
 \item{axis_title_family}{A string indicating the font-family to use for
-axis titles. The default is "Avenir Next".}
+axis titles. The default is "Trebuchet MS".}
 
 \item{axis_text_family}{A string indicating the font-family to use for
-axis text. The default is "Avenir Next".}
+axis text. The default is "Trebuchet MS".}
 
 \item{legend_title_family}{A string indicating the font-family to use for
-legend titles. The default is "Avenir Next".}
+legend titles. The default is "Trebuchet MS".}
 
 \item{legend_text_family}{A string indicating the font-family to use for
-legend text. The default is "Avenir Next".}
+legend text. The default is "Trebuchet MS".}
 
 \item{facet_title_family}{A string indicating the font-family to use for
-facet titles. The default is "Avenir Next".}
+facet titles. The default is "Trebuchet MS".}
 
 \item{caption_family}{A string indicating the font-family to use for
-captions. The default is "Avenir Next".}
+captions. The default is "Trebuchet MS".}
 
 \item{title_size}{An integer indicating the font size to use for the title
 in points. The default is 17 points.}

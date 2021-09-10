@@ -6,8 +6,8 @@
 \usage{
 geom_text_pilot(
   color = "#ffffff",
-  family = "Avenir Next Demi Bold",
-  fontface = "plain",
+  family = "Trebuchet MS",
+  fontface = "bold",
   ...
 )
 }
@@ -16,7 +16,7 @@ geom_text_pilot(
 default is "#ffffff".}
 
 \item{family}{A string indicating the font family to use for the text. The
-default is "Avenir Next".}
+default is "Trebuchet MS".}
 
 \item{fontface}{A string indicating the font face to use for the text. The
 default is "bold".}

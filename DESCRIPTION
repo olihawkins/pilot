@@ -1,7 +1,7 @@
 Package: pilot
 Type: Package
 Title: A minimal ggplot2 theme with an accessible discrete color palette
-Version: 3.0.0
+Version: 3.1.0
 Authors@R: 
     person(
         given = "Oliver",
@@ -21,4 +21,4 @@ Imports:
     rlang,
     rsvg,
     stringr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2

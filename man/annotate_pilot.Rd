@@ -6,7 +6,7 @@
 \usage{
 annotate_pilot(
   color = "#404040",
-  family = "Avenir Next",
+  family = "Trebuchet MS",
   fontface = "plain",
   size = 5,
   ...

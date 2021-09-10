@@ -51,21 +51,21 @@
 #' @param caption_position A string indicating the horizontal position of the
 #'   caption. Valid positions are "left" or "right". The default is "right".
 #' @param title_family A string indicating the font-family to use for the
-#'   title. The default is "Avenir Next Demi Bold".
+#'   title. The default is "Trebuchet MS".
 #' @param subtitle_family A string indicating the font-family to use for the
-#'   subtitle. The default is "Avenir Next".
+#'   subtitle. The default is "Trebuchet MS".
 #' @param axis_title_family A string indicating the font-family to use for
-#'   axis titles. The default is "Avenir Next".
+#'   axis titles. The default is "Trebuchet MS".
 #' @param axis_text_family A string indicating the font-family to use for
-#'   axis text. The default is "Avenir Next".
+#'   axis text. The default is "Trebuchet MS".
 #' @param legend_title_family A string indicating the font-family to use for
-#'   legend titles. The default is "Avenir Next".
+#'   legend titles. The default is "Trebuchet MS".
 #' @param legend_text_family A string indicating the font-family to use for
-#'   legend text. The default is "Avenir Next".
+#'   legend text. The default is "Trebuchet MS".
 #' @param facet_title_family A string indicating the font-family to use for
-#'   facet titles. The default is "Avenir Next".
+#'   facet titles. The default is "Trebuchet MS".
 #' @param caption_family A string indicating the font-family to use for
-#'   captions. The default is "Avenir Next".
+#'   captions. The default is "Trebuchet MS".
 #' @param title_size An integer indicating the font size to use for the title
 #'   in points. The default is 17 points.
 #' @param subtitle_size An integer indicating the font size to use for the
@@ -112,14 +112,14 @@ theme_pilot <- function (
     grid = "hv",
     legend_position = "right",
     caption_position = "right",
-    title_family = "Avenir Next Demi Bold",
-    subtitle_family = "Avenir Next",
-    axis_title_family = "Avenir Next",
-    axis_text_family = "Avenir Next",
-    legend_title_family = "Avenir Next",
-    legend_text_family = "Avenir Next",
-    facet_title_family = "Avenir Next",
-    caption_family = "Avenir Next",
+    title_family = "Trebuchet MS",
+    subtitle_family = "Trebuchet MS",
+    axis_title_family = "Trebuchet MS",
+    axis_text_family = "Trebuchet MS",
+    legend_title_family = "Trebuchet MS",
+    legend_text_family = "Trebuchet MS",
+    facet_title_family = "Trebuchet MS",
+    caption_family = "Trebuchet MS",
     title_size = 17,
     subtitle_size = 12,
     axis_title_size = 11,
@@ -162,13 +162,13 @@ theme_pilot <- function (
         plot.title = ggplot2::element_text(
             family = title_family,
             color = title_color,
-            face = "plain",
+            face = "bold",
             hjust = 0,
             size = title_size,
             margin = ggplot2::margin(
                 t = 0,
                 r = 0,
-                b = 6,
+                b = 5,
                 l = 0, unit = "pt")),
         plot.subtitle = ggplot2::element_text(
             family = subtitle_family,
@@ -424,8 +424,8 @@ add_pilot_titles <- function(
     plot,
     title = NULL,
     subtitle = NULL,
-    title_family = "Avenir Next Demi Bold",
-    subtitle_family = "Avenir Next",
+    title_family = "Trebuchet MS",
+    subtitle_family = "Trebuchet MS",
     title_size = 17,
     subtitle_size = 12,
     title_color = "#404040",

@@ -4,10 +4,15 @@
 \alias{set_pilot_family}
 \title{Set the font family used for all supported text elements}
 \usage{
-set_pilot_family(family)
+set_pilot_family(family, title_family = NULL)
 }
 \arguments{
 \item{family}{The name of the font family to use.}
+
+\item{title_family}{The name of the font family to use for the main chart
+title. This is an optional argument that lets you use a different font
+family for the main title. The argument is ignored if the value is NULL.
+The default value is NULL.}
 }
 \description{
 The font family used for each text element is controlled through a set of

@@ -13,6 +13,8 @@ DATASET_CON_FILE <- file.path(DATASET_DIR, "constituencies.csv")
 DATASET_MIGRATION_FILE <- file.path(DATASET_DIR, "migration.csv")
 DATASET_MIGRATION_NATIONALITY_FILE <- file.path(DATASET_DIR, "migration-nationality.csv")
 DATASET_NURSES_FILE <- file.path(DATASET_DIR, "nurses.csv")
+DATASET_RETHINKING_HW_FILE <- file.path(DATASET_DIR, "rethinking-height-weight.csv")
+DATASET_RETHINKING_PS_FILE <- file.path(DATASET_DIR, "rethinking-posterior-summary.csv")
 
 GALLERY_DIR <- "."
 GALLERY_FILE <- "gallery.html"
@@ -23,6 +25,7 @@ GALLERY_BAR_MIGRATION_NAME <- file.path("bar-migration")
 GALLERY_AREA_NURSES_NAME <- file.path("area-nurses")
 GALLERY_SCATTER_CONS_TYPE_NAME <- file.path("scatter-cons-type")
 GALLERY_SCATTER_CONS_FACET_NAME <- file.path("scatter-cons-facet")
+GALLERY_SCATTER_RETHINKING_NAME <- file.path("scatter-rethinking")
 
 SVG_WIDTH <- 7.7
 SVG_HEIGHT <- 5.65
@@ -49,6 +52,7 @@ build_gallery <- function() {
     examples[[GALLERY_AREA_NURSES_NAME]] = example_area_nurses
     examples[[GALLERY_SCATTER_CONS_TYPE_NAME]] = example_scatter_cons_type
     examples[[GALLERY_SCATTER_CONS_FACET_NAME]] = example_scatter_cons_facet
+    examples[[GALLERY_SCATTER_RETHINKING_NAME]] = example_scatter_rethinking
 
     elements <- map_chr(names(examples), function(example_name) {
         build_example(example_name, examples[[example_name]])
@@ -302,5 +306,48 @@ example_scatter_cons_facet <- function() {
         subtitle = "Constituencies by age, turnout and settlement class, 2017")
 }
 
+example_scatter_rethinking <- function() {
+
+    height_weight <- read_csv(DATASET_RETHINKING_HW_FILE)
+    posterior_summary <- read_csv(DATASET_RETHINKING_PS_FILE)
+
+    plot <- ggplot(
+            data = posterior_summary,
+            mapping = aes(x = weight)) +
+        geom_ribbon(
+            mapping = aes(
+                ymin = lower_prediction,
+                ymax = upper_prediction),
+            fill = pilot_color("blue"),
+            alpha = 0.5)  +
+        geom_ribbon(
+            mapping = aes(
+                ymin = lower_parameter,
+                ymax = upper_parameter),
+            fill = pilot_color("navy"),
+            alpha = 0.5)  +
+        geom_line(
+            mapping = aes(y = height),
+            color = pilot_color("navy")) +
+        geom_point(
+            data = height_weight,
+            mapping = aes(
+                x = weight,
+                y = height),
+            shape = 16,
+            size = 2,
+            color = "#404040",
+            alpha = 0.6) +
+        labs(
+            x = "Weight",
+            y = "Height") +
+        coord_cartesian(expand = FALSE) +
+        theme_pilot()
+
+    plot <- add_pilot_titles(
+        plot,
+        title = "Statistical Rethinking, Figure 4.10",
+        subtitle = "89% prediction interval for height as a function of weight")
+}
 
 

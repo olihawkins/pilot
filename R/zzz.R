@@ -8,9 +8,14 @@
 #' Individual family options can be set with \code{options}.
 #'
 #' @param family The name of the font family to use.
+#' @param title_family The name of the font family to use for the main chart
+#'   title. This is an optional argument that lets you use a different font
+#'   family for the main title. The argument is ignored if the value is NULL.
+#'   The default value is NULL.
 #' @export
 
-set_pilot_family <- function(family) {
+set_pilot_family <- function(family, title_family = NULL) {
+    if (is.null(title_family)) title_family <- family
     options(pilot.title_family = family)
     options(pilot.subtitle_family = family)
     options(pilot.axis_title_family = family)
@@ -25,29 +30,36 @@ set_pilot_family <- function(family) {
 
 .onLoad <- function(libname, pkgname) {
 
-    # Set a default font if system can't ne detected
-    default_family <- "Arial"
+    # Set a default fonts if system can't be detected
+    family <- "Arial"
+    title_family <- family
 
     # Set a default font for each main desktop OS
     switch(Sys.info()[['sysname']],
-           Windows = {default_family <- "Trebuchet MS"},
-           Linux = {default_family <- "Arial"},
-           Darwin = {default_family <- "PT Sans"})
+        Windows = {
+            family <- "Trebuchet MS"
+            title_family <- family},
+        Linux = {
+            family <- "Arial"
+            title_family <- family},
+        Darwin = {
+            family <- "PT Sans"
+            title_family <- family})
 
     # Set default options if options have not already been set
     op <- options()
 
     op_pilot <- list(
-        pilot.title_family = default_family,
-        pilot.subtitle_family = default_family,
-        pilot.axis_title_family = default_family,
-        pilot.axis_text_family = default_family,
-        pilot.legend_title_family = default_family,
-        pilot.legend_text_family = default_family,
-        pilot.facet_title_family = default_family,
-        pilot.caption_family = default_family,
-        pilot.geom_text_family = default_family,
-        pilot.annotate_family = default_family)
+        pilot.title_family = title_family,
+        pilot.subtitle_family = family,
+        pilot.axis_title_family = family,
+        pilot.axis_text_family = family,
+        pilot.legend_title_family = family,
+        pilot.legend_text_family = family,
+        pilot.facet_title_family = family,
+        pilot.caption_family = family,
+        pilot.geom_text_family = family,
+        pilot.annotate_family = family)
 
     to_set <- !(names(op_pilot) %in% names(op))
     if (any(to_set)) options(op_pilot[to_set])

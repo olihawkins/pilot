@@ -1,3 +1,5 @@
+# Outputs
+
 #' Save a plot as an svg
 #'
 #' @param plot A plot object.

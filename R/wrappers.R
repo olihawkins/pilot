@@ -1,4 +1,4 @@
-### Theme specific versions of ggplot2 functions setting default styles
+# Theme specific versions of ggplot2 functions setting default styles
 
 # Geoms -----------------------------------------------------------------------
 
@@ -19,7 +19,7 @@
 
 geom_text_pilot <- function(
     color = "#ffffff",
-    family = "Trebuchet MS",
+    family = getOption("pilot.geom_text_family"),
     fontface = "bold",
     ...) {
 
@@ -41,16 +41,16 @@ geom_text_pilot <- function(
 #' @param color An RGB hex string indicating the color to use for the text. The
 #'   default is "#404040".
 #' @param family A string indicating the font family to use for the text. The
-#'   default is "Open Sans".
+#'   default is "Trebuchet MS".
 #' @param fontface A string indicating the font face to use for the text. The
 #'   default is "plain".
 #' @param size An integer indicating the size of the text. The default is 5.
 #' @param ... Any other arguments passed to \code{annotate}.
 #' @export
-#'
+
 annotate_pilot <- function(
     color = "#404040",
-    family = "Trebuchet MS",
+    family = getOption("pilot.annotate_family"),
     fontface = "plain",
     size = 5,
     ...) {

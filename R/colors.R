@@ -1,4 +1,4 @@
-### Colors
+# Colors
 
 #' Pilot colors
 #' @export
@@ -13,6 +13,7 @@ pilot_colors <- c(
     "orange" = "#e77d00")
 
 #' Get the hex code for a pilot color
+#'
 #' @param color_name The name of the color.
 #' @export
 

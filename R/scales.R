@@ -1,6 +1,6 @@
-### Scales
+# Scales
 
-#' Function to extract pilot colors as hex codes
+#' Extract pilot colors as hex codes
 #'
 #' @param ... Names of colors in \code{pilot_colors}.
 #' @export

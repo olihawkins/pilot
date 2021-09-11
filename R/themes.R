@@ -1,4 +1,4 @@
-### Themes
+# Themes
 
 # Theme functions -------------------------------------------------------------
 
@@ -112,14 +112,14 @@ theme_pilot <- function (
     grid = "hv",
     legend_position = "right",
     caption_position = "right",
-    title_family = "Trebuchet MS",
-    subtitle_family = "Trebuchet MS",
-    axis_title_family = "Trebuchet MS",
-    axis_text_family = "Trebuchet MS",
-    legend_title_family = "Trebuchet MS",
-    legend_text_family = "Trebuchet MS",
-    facet_title_family = "Trebuchet MS",
-    caption_family = "Trebuchet MS",
+    title_family = getOption("pilot.title_family"),
+    subtitle_family =getOption("pilot.subtitle_family"),
+    axis_title_family = getOption("pilot.axis_title_family"),
+    axis_text_family = getOption("pilot.axis_text_family"),
+    legend_title_family = getOption("pilot.legend_title_family"),
+    legend_text_family = getOption("pilot.legend_text_family"),
+    facet_title_family = getOption("pilot.facet_title_family"),
+    caption_family = getOption("pilot.caption_family"),
     title_size = 17,
     subtitle_size = 12,
     axis_title_size = 11,
@@ -424,8 +424,8 @@ add_pilot_titles <- function(
     plot,
     title = NULL,
     subtitle = NULL,
-    title_family = "Trebuchet MS",
-    subtitle_family = "Trebuchet MS",
+    title_family = getOption("pilot.title_family"),
+    subtitle_family = getOption("pilot.subtitle_family"),
     title_size = 17,
     subtitle_size = 12,
     title_color = "#404040",

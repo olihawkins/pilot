@@ -1,10 +1,7 @@
 # pilot
 
-pilot is a general purpose ggplot2 theme with an accessible discrete color palette.
+Pilot is an attractive, minimal, general purpose ggplot2 theme with an accessible discrete color palette.
 
-## Fonts
-
-The theme uses "Trebuchet MS" for the text elements of a plot by default. This font was chosen as the best looking font that is available natively on both MacOS and Windows. This can be changed when the theme function is called. Use `?theme_pilot` to see the documentation showing the full list of arguments that can be used to customise the fonts. 
 
 ## Installation
 
@@ -14,6 +11,38 @@ Install from GitHub using remotes.
 install.packages("remotes")
 remotes::install_github("olihawkins/pilot")
 ```
+
+## Fonts
+
+The theme uses a different default font on each desktop opertating system. These are "PT Sans" on MacOS, "Trebuchet MS" on Windows, and "Arial" on Linux. 
+
+You can customise the fonts the theme uses in three ways: 
+
+- Universally -- By setting family options for the theme in .Rprofile
+- Per R session -- By setting the options dynamically using `options` or `set_pilot_family`
+- Per plot -- By using the family arguments in `theme_pilot`
+
+The full list of font family options that can be set in .Rprofile or using `options` are:
+
+- `pilot.title_family`
+- `pilot.subtitle_family`
+- `pilot.axis_title_family`
+- `pilot.axis_text_family`
+- `pilot.legend_title_family`
+- `pilot.legend_text_family`
+- `pilot.facet_title_family`
+- `pilot.caption_family`
+- `pilot.geom_text_family`
+- `pilot.annotate_family`
+
+The `set_pilot_family` function sets all the font family options to the same family with a single function call.
+
+```r
+set_pilot_family("Helvetica Neue")
+```
+
+Use `?theme_pilot` to see the documentation showing the full list of arguments that can be used to customise the fonts for an individual plot using the arguments in `theme_pilot`.
+
 
 ## Colors
 
@@ -37,7 +66,7 @@ scale_color_manual(values = c(
     "b" = pilot_color("blue")))
 ```
 
-These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors (see below). However, care should be taken in how you use these scales. For convenience these scales support ggplot2's color interpolation feature. But expanding the seven color palette to represent more than seven categories risks creating new colors that are no longer visually distinct to people with color blindness. The sequence of colours in the main palette has been chosen to reduce this risk, but if you want ensure the colors remain distinct you should use these scales with discrete data that has the same number of categories as the palette you choose.
+These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors (see below). However, care should be taken in how you use these scales. For convenience these scales support ggplot2's color interpolation feature. But expanding the seven color palette to represent more than seven categories risks creating new colors that are no longer visually distinct to people with color blindness. The sequence of colours in the main palette has been chosen to reduce this risk, but if you want to ensure the colors remain distinct, you should only use these scales with discrete data that has the same number of categories as the palette you choose.
 
 ## Theme
 

@@ -6,7 +6,7 @@
 \usage{
 geom_text_pilot(
   color = "#ffffff",
-  family = "Trebuchet MS",
+  family = getOption("pilot.geom_text_family"),
   fontface = "bold",
   ...
 )

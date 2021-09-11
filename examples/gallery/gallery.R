@@ -1,4 +1,4 @@
-### Functions to create a gallery of examples using the theme and scales
+# Functions to create a gallery of examples using the theme and scales
 
 # Imports ---------------------------------------------------------------------
 

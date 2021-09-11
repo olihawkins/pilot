@@ -2,7 +2,7 @@
 % Please edit documentation in R/scales.R
 \name{get_pilot_colors}
 \alias{get_pilot_colors}
-\title{Function to extract pilot colors as hex codes}
+\title{Extract pilot colors as hex codes}
 \usage{
 get_pilot_colors(...)
 }
@@ -10,5 +10,5 @@ get_pilot_colors(...)
 \item{...}{Names of colors in \code{pilot_colors}.}
 }
 \description{
-Function to extract pilot colors as hex codes
+Extract pilot colors as hex codes
 }

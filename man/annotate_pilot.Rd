@@ -6,7 +6,7 @@
 \usage{
 annotate_pilot(
   color = "#404040",
-  family = "Trebuchet MS",
+  family = getOption("pilot.annotate_family"),
   fontface = "plain",
   size = 5,
   ...
@@ -17,7 +17,7 @@ annotate_pilot(
 default is "#404040".}
 
 \item{family}{A string indicating the font family to use for the text. The
-default is "Open Sans".}
+default is "Trebuchet MS".}
 
 \item{fontface}{A string indicating the font face to use for the text. The
 default is "plain".}

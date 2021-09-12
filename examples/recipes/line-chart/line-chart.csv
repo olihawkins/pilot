@@ -1,0 +1,81 @@
+quarter,flow,estimate
+2010-01-01,Immigration,591
+2010-04-01,Immigration,605
+2010-07-01,Immigration,595
+2010-10-01,Immigration,613
+2011-01-01,Immigration,604
+2011-04-01,Immigration,612
+2011-07-01,Immigration,625
+2011-10-01,Immigration,614
+2012-01-01,Immigration,599
+2012-04-01,Immigration,567
+2012-07-01,Immigration,544
+2012-10-01,Immigration,522
+2013-01-01,Immigration,524
+2013-04-01,Immigration,521
+2013-07-01,Immigration,531
+2013-10-01,Immigration,563
+2014-01-01,Immigration,557
+2014-04-01,Immigration,583
+2014-07-01,Immigration,607
+2014-10-01,Immigration,648
+2015-01-01,Immigration,667
+2015-04-01,Immigration,680
+2015-07-01,Immigration,671
+2015-10-01,Immigration,648
+2016-01-01,Immigration,664
+2016-04-01,Immigration,667
+2016-07-01,Immigration,652
+2016-10-01,Immigration,631
+2017-01-01,Immigration,622
+2017-04-01,Immigration,617
+2017-07-01,Immigration,599
+2017-10-01,Immigration,640
+2018-01-01,Immigration,644
+2018-04-01,Immigration,623
+2018-07-01,Immigration,628
+2018-10-01,Immigration,630
+2019-01-01,Immigration,604
+2019-04-01,Immigration,612
+2019-07-01,Immigration,609
+2019-10-01,Immigration,642
+2010-01-01,Net migration,229
+2010-04-01,Net migration,237
+2010-07-01,Net migration,244
+2010-10-01,Net migration,250
+2011-01-01,Net migration,256
+2011-04-01,Net migration,277
+2011-07-01,Net migration,283
+2011-10-01,Net migration,275
+2012-01-01,Net migration,249
+2012-04-01,Net migration,215
+2012-07-01,Net migration,194
+2012-10-01,Net migration,180
+2013-01-01,Net migration,161
+2013-04-01,Net migration,164
+2013-07-01,Net migration,177
+2013-10-01,Net migration,206
+2014-01-01,Net migration,208
+2014-04-01,Net migration,233
+2014-07-01,Net migration,252
+2014-10-01,Net migration,287
+2015-01-01,Net migration,309
+2015-04-01,Net migration,331
+2015-07-01,Net migration,329
+2015-10-01,Net migration,313
+2016-01-01,Net migration,329
+2016-04-01,Net migration,326
+2016-07-01,Net migration,306
+2016-10-01,Net migration,277
+2017-01-01,Net migration,252
+2017-04-01,Net migration,243
+2017-07-01,Net migration,228
+2017-10-01,Net migration,247
+2018-01-01,Net migration,249
+2018-04-01,Net migration,231
+2018-07-01,Net migration,237
+2018-10-01,Net migration,247
+2019-01-01,Net migration,232
+2019-04-01,Net migration,218
+2019-07-01,Net migration,204
+2019-10-01,Net migration,240

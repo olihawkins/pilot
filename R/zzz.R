@@ -40,11 +40,11 @@ set_pilot_family <- function(family, title_family = NULL) {
             family <- "Trebuchet MS"
             title_family <- family},
         Linux = {
-            family <- "Arial"
+            family <- ""
             title_family <- family},
         Darwin = {
-            family <- "PT Sans"
-            title_family <- family})
+            family <- "Avenir Next"
+            title_family <- "Avenir Next Demibold"})
 
     # Set default options if options have not already been set
     op <- options()

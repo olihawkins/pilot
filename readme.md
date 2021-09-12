@@ -14,7 +14,7 @@ remotes::install_github("olihawkins/pilot")
 
 ## Fonts
 
-The theme uses a different default font on each desktop opertating system. These are "PT Sans" on MacOS, "Trebuchet MS" on Windows, and "Arial" on Linux. 
+The theme uses a different default font on each desktop opertating system. These are "Avenir Next" on MacOS, "Trebuchet MS" on Windows, and the default sans-serif font on Linux. 
 
 You can customise the fonts the theme uses in three ways: 
 
@@ -39,6 +39,12 @@ The `set_pilot_family` function sets all the font family options to the same fam
 
 ```r
 set_pilot_family("Helvetica Neue")
+```
+
+You can optionally set a different family for the main title.
+
+```r
+set_pilot_family("Avenir Next", title_family = "Avenir Next Demibold")
 ```
 
 Use `?theme_pilot` to see the documentation showing the full list of arguments that can be used to customise the fonts for an individual plot using the arguments in `theme_pilot`.

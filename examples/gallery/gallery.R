@@ -9,26 +9,26 @@ devtools::load_all(".")
 # Constants -------------------------------------------------------------------
 
 DATASET_DIR <- "datasets"
+DATASET_POP_FILE <- file.path(DATASET_DIR, "population-by-region.csv")
 DATASET_CON_FILE <- file.path(DATASET_DIR, "constituencies.csv")
 DATASET_MIGRATION_FILE <- file.path(DATASET_DIR, "migration.csv")
 DATASET_MIGRATION_NATIONALITY_FILE <- file.path(DATASET_DIR, "migration-nationality.csv")
-DATASET_NURSES_FILE <- file.path(DATASET_DIR, "nurses.csv")
 DATASET_RETHINKING_HW_FILE <- file.path(DATASET_DIR, "rethinking-height-weight.csv")
 DATASET_RETHINKING_PS_FILE <- file.path(DATASET_DIR, "rethinking-posterior-summary.csv")
+DATASET_ELECTRICITY_FILE <- file.path(DATASET_DIR, "electricity-generation.csv")
 
 GALLERY_DIR <- "."
 GALLERY_FILE <- "gallery.html"
 
-GALLERY_BAR_CONS_REGION_NAME <- file.path("bar-cons-region")
+GALLERY_BAR_POP_REGION_NAME <- file.path("bar-pop-region")
 GALLERY_LINE_MIGRATION_NAME <- file.path("line-migration")
 GALLERY_BAR_MIGRATION_NAME <- file.path("bar-migration")
-GALLERY_AREA_NURSES_NAME <- file.path("area-nurses")
-GALLERY_SCATTER_CONS_TYPE_NAME <- file.path("scatter-cons-type")
+GALLERY_AREA_ELECTRICITY_NAME <- file.path("area-electricity")
 GALLERY_SCATTER_CONS_FACET_NAME <- file.path("scatter-cons-facet")
 GALLERY_SCATTER_RETHINKING_NAME <- file.path("scatter-rethinking")
 
 SVG_WIDTH <- 7.7
-SVG_HEIGHT <- 5.65
+SVG_HEIGHT <- 5.8
 
 # Build gallery ---------------------------------------------------------------
 
@@ -46,11 +46,10 @@ build_example <- function(example_name, example_func) {
 build_gallery <- function() {
 
     examples <- list()
-    examples[[GALLERY_BAR_CONS_REGION_NAME]] = example_bar_cons_region
+    examples[[GALLERY_BAR_POP_REGION_NAME]] = example_bar_pop_region
     examples[[GALLERY_LINE_MIGRATION_NAME]] = example_line_migration
+    examples[[GALLERY_AREA_ELECTRICITY_NAME]] = example_area_electricity
     examples[[GALLERY_BAR_MIGRATION_NAME]] = example_bar_migration
-    examples[[GALLERY_AREA_NURSES_NAME]] = example_area_nurses
-    examples[[GALLERY_SCATTER_CONS_TYPE_NAME]] = example_scatter_cons_type
     examples[[GALLERY_SCATTER_CONS_FACET_NAME]] = example_scatter_cons_facet
     examples[[GALLERY_SCATTER_RETHINKING_NAME]] = example_scatter_rethinking
 
@@ -73,35 +72,42 @@ build_gallery <- function() {
 
 # Examples --------------------------------------------------------------------
 
-example_bar_cons_region <- function() {
+example_bar_pop_region <- function() {
 
-    df <- read_csv(DATASET_CON_FILE)
+    df <- read_csv(DATASET_POP_FILE)
     df$region <- factor(df$region)
-    df$region <- fct_rev(reorder(df$region, df$region, length))
+    df$region <- fct_reorder(df$region, df$population, max)
 
     plot <- ggplot(data = df) +
-        geom_bar(
-            mapping = aes(x = region),
+        geom_col(
+            mapping = aes(
+                x = population,
+                y = region),
             fill = pilot_color("navy")) +
         geom_text_pilot(
-            stat = "count",
-            mapping = aes(x = region, label = ..count..),
-            vjust = "top",
-            nudge_y = -3) +
+            mapping = aes(
+                x = population,
+                y = region,
+                label = format(population, digits = 2)),
+            hjust = "center",
+            nudge_x = -0.4) +
         labs(
-            x = "Country or region",
-            y = "Number of constituencies",
-            caption = "olihawkins.com") +
-        scale_x_discrete(
-            expand = expansion(add = c(0.5, 0.5))) +
-        scale_y_continuous(expand = c(0,0)) +
-        theme_pilot(axes = "b", grid = "h", caption_position = "left") +
-        theme(legend.position = "none")
+            x = "Millions of people",
+            y = NULL) +
+        scale_x_continuous(
+            limits = c(0, 10),
+            breaks = seq(0, 10, 2),
+            expand = c(0,0)) +
+        scale_y_discrete(
+            expand = expansion(add = c(0.6, 0.6))) +
+        theme_pilot(
+            axes = "b",
+            grid = "")
 
     plot <- add_pilot_titles(
         plot,
-        title = "Countries and regions vary in representation",
-        subtitle = "Constituencies by country or region, United Kingdom")
+        title = "Countries and regions vary in population",
+        subtitle = "Population of countries and regions in mid-2020, United Kingdom")
 
     plot
 }
@@ -112,7 +118,10 @@ example_line_migration <- function() {
 
     plot <- ggplot(
             data = df,
-            mapping = aes(x = quarter, y = estimate, color = flow)) +
+            mapping = aes(
+                x = quarter,
+                y = estimate,
+                color = flow)) +
         geom_line(size = 1.3) +
         labs(
             color = NULL,
@@ -135,9 +144,63 @@ example_line_migration <- function() {
 
     plot <- add_pilot_titles(
         plot,
-        title = "Net migration has fallen since the EU referendum",
+        title = "Net migration fell after the EU referendum",
         subtitle = "International migration in the year ending each quarter")
 }
+
+example_area_electricity <- function() {
+
+    df <- read_csv(DATASET_ELECTRICITY_FILE) %>%
+        pivot_longer(
+            cols = -date,
+            names_to = "energy_source",
+            values_to = "gwh")
+
+    df$energy_source <- factor(
+        df$energy_source,
+        levels = c("other", "renewables"))
+
+    plot <- ggplot(
+        data = df,
+        mapping = aes(x = date, y = gwh, fill = energy_source)) +
+        geom_area() +
+        labs(
+            x = NULL,
+            y = NULL,
+            caption = "Source: BEIS, Digest of UK Energy Statistics, Table 5.3") +
+        scale_x_date(
+            expand = c(0, 0)) +
+        scale_y_continuous(
+            label = comma,
+            limits = c(0, 402000),
+            breaks = seq(0, 400000, 100000),
+            expand = c(0, 0)) +
+        annotate_pilot(
+            x = as.Date("2013-10-07"),
+            y = 200000,
+            label = "Non-renewable",
+            color = "#ffffff",
+            hjust = 0) +
+        annotate_pilot(
+            x = as.Date("2015-04-01"),
+            y = 40000,
+            label = "Renewable",
+            color = "#202020",
+            hjust = 0) +
+        theme_pilot(
+            axes = "bl",
+            grid = "",
+            legend_position = "none") +
+        scale_fill_manual(values = c(
+            "renewables" = pilot_color("green"),
+            "other" = pilot_color("navy")))
+
+    plot <- add_pilot_titles(
+        plot,
+        title = "Renewables are growing as a share of electricity generation",
+        subtitle = "Electricity generation by fuel type in the United Kingdom from 1996 to 2020, GWh")
+}
+
 
 example_bar_migration <- function() {
 
@@ -146,8 +209,8 @@ example_bar_migration <- function() {
     df$nationality <- factor(df$nationality, levels = c("Non-EU", "EU", "British"))
 
     plot <- ggplot(
-            data = df,
-            mapping = aes(x = year, y = estimate, fill = nationality)) +
+        data = df,
+        mapping = aes(x = year, y = estimate, fill = nationality)) +
         geom_col() +
         labs(
             x = NULL,
@@ -174,95 +237,6 @@ example_bar_migration <- function() {
         subtitle = "Immigration by nationality in each year ending September (000s)")
 }
 
-example_area_nurses <- function() {
-
-    df <- read_csv(DATASET_NURSES_FILE) %>%
-        pivot_longer(
-            cols = -date,
-            names_to = "care_setting",
-            values_to = "number")
-
-    df$care_setting <- factor(
-        df$care_setting,
-        levels = c("neonatal", "maternity"))
-
-    plot <- ggplot(
-            data = df,
-            mapping = aes(x = date, y = number, fill = care_setting)) +
-        geom_area() +
-        labs(
-            x = NULL,
-            y = NULL) +
-        scale_y_continuous(
-            label = comma,
-            limits = c(0, 9020),
-            breaks = seq(0, 9000, 3000)) +
-        scale_x_date() +
-        coord_cartesian(expand = FALSE) +
-        annotate_pilot(
-            x = as.Date("2015-01-01"),
-            y = 5500,
-            label = "Neonatal nurses",
-            color = "#202020",
-            hjust = 0) +
-        annotate_pilot(
-            x = as.Date("2015-01-01"),
-            y = 1500,
-            label = "Maternity nurses",
-            color = "#ffffff",
-            hjust = 0) +
-        theme_pilot(axes = "b", grid = "h") +
-        scale_fill_manual(values = c(
-            "neonatal" = pilot_color("green"),
-            "maternity" = pilot_color("navy"))) +
-        theme(legend.position = "none")
-
-    plot <- add_pilot_titles(
-        plot,
-        title = "Neonatal nurses have overtaken maternity nurses",
-        subtitle = "Maternity and neonatal nurses in England")
-}
-
-example_scatter_cons_type <- function() {
-
-    types <- c("London", "Other city", "Large town",
-               "Medium town", "Small town", "Village")
-    df <- read_csv(DATASET_CON_FILE)
-    df <- df %>% filter(! is.na(classification))
-    df$type <- factor(df$classification, levels = types)
-
-    plot <- ggplot(
-            data = df,
-            mapping = aes(x = median_age, y = turnout, color = type)) +
-        geom_point(
-            shape = 16,
-            size = 2) +
-        labs(
-            x = "Median age",
-            y = "Turnout",
-            color = "Settlement class",
-            caption = "olihawkins.com") +
-        scale_x_continuous(
-            limits = c(25, 55)) +
-        scale_y_continuous(
-            limits = c(0.5, 0.8),
-            label = percent_format(accuracy = 1)) +
-        coord_cartesian(expand = FALSE) +
-        theme_pilot(grid = "hv") +
-        scale_color_manual(values = c(
-            "London" = pilot_color("navy"),
-            "Other city" = pilot_color("blue"),
-            "Large town" = pilot_color("brown"),
-            "Medium town" = pilot_color("green"),
-            "Small town" = pilot_color("yellow"),
-            "Village" = pilot_color("purple")))
-
-    plot <- add_pilot_titles(
-        plot,
-        title = "Turnout was higher in older, less urban constituencies",
-        subtitle = "Constituencies by age, turnout and settlement class, 2017")
-}
-
 example_scatter_cons_facet <- function() {
 
     types <- c("London", "Other city", "Large town",
@@ -272,8 +246,8 @@ example_scatter_cons_facet <- function() {
     df$type <- factor(df$classification, levels = types)
 
     plot <- ggplot(
-            data = df,
-            mapping = aes(x = median_age, y = turnout, color = type)) +
+        data = df,
+        mapping = aes(x = median_age, y = turnout, color = type)) +
         geom_point(
             shape = 16,
             size = 2,
@@ -282,23 +256,25 @@ example_scatter_cons_facet <- function() {
         labs(
             x = "Median age",
             y = "Turnout",
-            color = "Settlement class",
-            caption = "olihawkins.com") +
+            color = "Settlement class") +
         scale_x_continuous(
-            limits = c(25, 55)) +
+            limits = c(25, 55),
+            breaks = seq(25, 55, 10)) +
         scale_y_continuous(
-            limits = c(0.5, 0.85),
+            limits = c(0.5, 0.8),
             label = percent_format(accuracy = 1)) +
         coord_cartesian(expand = FALSE) +
-        theme_pilot(axes = "", grid = "hv") +
+        theme_pilot(
+            axes = "",
+            grid = "hv",
+            legend_position = "none") +
         scale_color_manual(values = c(
             "London" = pilot_color("navy"),
             "Other city" = pilot_color("blue"),
             "Large town" = pilot_color("brown"),
             "Medium town" = pilot_color("green"),
             "Small town" = pilot_color("orange"),
-            "Village" = pilot_color("purple"))) +
-        theme(legend.position ="None")
+            "Village" = pilot_color("purple")))
 
     plot <- add_pilot_titles(
         plot,
@@ -312,23 +288,23 @@ example_scatter_rethinking <- function() {
     posterior_summary <- read_csv(DATASET_RETHINKING_PS_FILE)
 
     plot <- ggplot(
-            data = posterior_summary,
-            mapping = aes(x = weight)) +
+        data = posterior_summary,
+        mapping = aes(x = weight)) +
         geom_ribbon(
             mapping = aes(
                 ymin = lower_prediction,
                 ymax = upper_prediction),
-            fill = pilot_color("blue"),
+            fill = pilot_color("orange"),
             alpha = 0.5)  +
         geom_ribbon(
             mapping = aes(
                 ymin = lower_parameter,
                 ymax = upper_parameter),
-            fill = pilot_color("navy"),
+            fill = pilot_color("brown"),
             alpha = 0.5)  +
         geom_line(
             mapping = aes(y = height),
-            color = pilot_color("navy")) +
+            color = pilot_color("brown")) +
         geom_point(
             data = height_weight,
             mapping = aes(
@@ -340,14 +316,15 @@ example_scatter_rethinking <- function() {
             alpha = 0.6) +
         labs(
             x = "Weight",
-            y = "Height") +
+            y = "Height",
+            caption = "Source: Richard McElreath, Statistical Rethinking, Figure 4.10") +
+        scale_y_continuous(
+            limits = c(120, 190)) +
         coord_cartesian(expand = FALSE) +
-        theme_pilot()
+        theme_pilot(axes = "bl", grid = "hv", caption_position = "left")
 
     plot <- add_pilot_titles(
         plot,
-        title = "Statistical Rethinking, Figure 4.10",
-        subtitle = "89% prediction interval for height as a function of weight")
+        title = "Height increases as a function of weight",
+        subtitle = "Fitted regression line, slope interval, and 89% prediction interval")
 }
-
-

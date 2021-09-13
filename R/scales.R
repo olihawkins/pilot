@@ -74,7 +74,7 @@ get_pilot_palette <- function(
 #' @export
 
 scale_color_pilot <- function(
-    palette = "main",
+    palette = "seven",
     discrete = TRUE,
     reverse = FALSE, ...) {
 
@@ -98,7 +98,7 @@ scale_color_pilot <- function(
 #' @export
 
 scale_fill_pilot <- function(
-    palette = "main",
+    palette = "seven",
     discrete = TRUE,
     reverse = FALSE, ...) {
 

@@ -44,7 +44,7 @@ set_pilot_family <- function(family, title_family = NULL) {
             title_family <- family},
         Darwin = {
             family <- "Avenir Next"
-            title_family <- "Avenir Next Demibold"})
+            title_family <- "Avenir Next Demi Bold"})
 
     # Set default options if options have not already been set
     op <- options()

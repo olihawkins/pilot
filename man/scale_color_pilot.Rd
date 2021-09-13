@@ -4,7 +4,7 @@
 \alias{scale_color_pilot}
 \title{Color scale for pilot colors}
 \usage{
-scale_color_pilot(palette = "main", discrete = TRUE, reverse = FALSE, ...)
+scale_color_pilot(palette = "seven", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Name of palette in \code{pilot_palettes}.}

@@ -12,6 +12,57 @@ install.packages("remotes")
 remotes::install_github("olihawkins/pilot")
 ```
 
+## Basic usage
+
+Import the package and add `theme_pilot` to a plot made with `ggplot` in the normal way.
+
+```r
+library(ggplot2)
+library(pilot)
+
+plot <- ggplot(
+        data = mpg,
+        mapping = aes(
+            x = displ, 
+            y = hwy, 
+            color = class)) + 
+    geom_point() +
+    labs(
+        title = "Compact cars with smaller engines are more efficient",
+        subtitle = "Engine size by fuel efficiency and class",
+        caption = "Reproduced from Chapter 3 of R for Data Science",
+        x = "Engine size in litres",
+        y = "Miles per gallon",
+        color = "Class") + 
+    theme_pilot() +
+    scale_color_pilot()
+
+```
+
+## Colors
+
+This theme includes an accessible discrete color palette, comprising seven colors that are visually distinct to people with the most commmon types of color blindness. These colors are available in a named vector called `pilot_colors`.
+
+The base color names are:
+
+* __navy__
+* __blue__
+* __brown__
+* __green__
+* __yellow__
+* __purple__
+* __orange__
+
+You can use the `pilot_color` function to return the unnamed hex code value for a given name. This makes it easy to map specific colors to categorical variables using the `scale_color_manual()` and `scale_fill_manual()` functions.
+
+```r
+scale_color_manual(values = c(
+    "a" = pilot_color("navy"),
+    "b" = pilot_color("blue")))
+```
+
+These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors using `scale_color_pilot` and `scale_fill_pilot`. However, care should be taken in how you use these scales. For convenience these scales support ggplot2's color interpolation feature. But expanding the seven color palette to represent more than seven categories risks creating new colors that are no longer visually distinct to people with color blindness. The sequence of colours in the main palette has been chosen to reduce this risk, but if you want to ensure the colors remain distinct, you should only use these scales with discrete data that has the same number of categories as the palette you choose. More information on these scales can be found in the function reference below.
+
 ## Fonts
 
 The theme uses a different default font on each desktop opertating system. These are "Avenir Next" on MacOS, "Trebuchet MS" on Windows, and the default sans-serif font on Linux. 
@@ -44,37 +95,14 @@ set_pilot_family("Helvetica Neue")
 You can optionally set a different family for the main title.
 
 ```r
-set_pilot_family("Avenir Next", title_family = "Avenir Next Demibold")
+set_pilot_family("Avenir Next", title_family = "Avenir Next Demi Bold")
 ```
 
 Use `?theme_pilot` to see the documentation showing the full list of arguments that can be used to customise the fonts for an individual plot using the arguments in `theme_pilot`.
 
+## Function reference
 
-## Colors
-
-This theme includes an accessible discrete color palette, comprising seven colors that are visually distinct to people with the most commmon types of color blindness. These colors are available in a named vector called `pilot_colors`.
-
-The base color names are:
-
-* __navy__
-* __blue__
-* __brown__
-* __green__
-* __yellow__
-* __purple__
-* __orange__
-
-You can use the `pilot_color` function to return the unnamed hex code value for a given name. This makes it easy to map specific colors to categorical variables using the `scale_color_manual()` and `scale_fill_manual()` functions.
-
-```r
-scale_color_manual(values = c(
-    "a" = pilot_color("navy"),
-    "b" = pilot_color("blue")))
-```
-
-These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors (see below). However, care should be taken in how you use these scales. For convenience these scales support ggplot2's color interpolation feature. But expanding the seven color palette to represent more than seven categories risks creating new colors that are no longer visually distinct to people with color blindness. The sequence of colours in the main palette has been chosen to reduce this risk, but if you want to ensure the colors remain distinct, you should only use these scales with discrete data that has the same number of categories as the palette you choose.
-
-## Theme
+### Themes
 
 Apply the theme to a plot with `theme_pilot()`. There are a large number of arguments you can use to configure the components of the theme. Use `?theme_pilot` to see the full list of arguments. The principal arguments are documented below.
 
@@ -91,7 +119,7 @@ Set the theme with the following arguments:
 
 ---
 
-## Scales
+### Scales
 
 Use `scale_color_pilot()` or `scale_fill_pilot()` as approriate. Both functions have the same signature. Please see the note on colors above for appropiate use of these scales.
 

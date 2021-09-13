@@ -40,5 +40,5 @@ rsconnect/
 .DS_Store
 
 # Local files
-docs
+gallery/production
 

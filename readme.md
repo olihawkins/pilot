@@ -30,14 +30,42 @@ plot <- ggplot(
     labs(
         title = "Compact cars with smaller engines are more efficient",
         subtitle = "Engine size by fuel efficiency and class",
-        caption = "Reproduced from Chapter 3 of R for Data Science",
         x = "Engine size in litres",
         y = "Miles per gallon",
-        color = "Class") + 
+        color = "Class",
+        caption = "Reproduced from Chapter 3 of R for Data Science") + 
+    theme_pilot() +
+    scale_color_pilot()
+```
+
+By default, ggplot2 horizontally aligns the title and subtitle with the left-hand edge of the plotting area. A helper function called `add_pilot_titles` is available that will align the title and subtitle with the left-hand edge of the x-axis. To use it, first create the plot in the normal way but without specifying the title and subtitle, then apply `add_pilot_titles` to add the titles to the plot. 
+
+```r
+library(ggplot2)
+library(pilot)
+
+plot <- ggplot(
+        data = mpg,
+        mapping = aes(
+            x = displ, 
+            y = hwy, 
+            color = class)) + 
+    geom_point() +
+    labs(
+        x = "Engine size in litres",
+        y = "Miles per gallon",
+        color = "Class",
+        caption = "Reproduced from Chapter 3 of R for Data Science") + 
     theme_pilot() +
     scale_color_pilot()
 
+plot <- add_pilot_titles(
+    plot,
+    title = "Compact cars with smaller engines are more efficient",
+    subtitle = "Engine size by fuel efficiency and class")
 ```
+
+Note that `add_pilot_titles` uses `patchwork` behind the scenes to compose a new plot from the existing plot and the titles. So if you want to adjust the plot margins using a `theme` customisation, do it *after* you have applied the titles, otherwise your customisation will be overwritten by `add_pilot_titles`.
 
 ## Colors
 

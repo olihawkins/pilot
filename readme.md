@@ -177,3 +177,531 @@ Sets the scales with the following arguments. The default palette is "five".
 
 ---
 
+## Gallery
+
+The following gallery shows examples of how to create different types of charts with `pilot`. The datasets for each of these can be found in the [gallery/examples](gallery/examples) folder.
+
+### Bar chart
+
+<img src="gallery/examples/bar-chart-labels/bar-chart-labels.png" width="800" />
+
+```r
+# Imports ---------------------------------------------------------------------
+
+library(tidyverse)
+library(pilot)
+
+# Read in and prepare the data ------------------------------------------------
+
+# Load the data from the csv as a dataframe
+df <- read_csv("bar-chart-labels.csv")
+
+# Turn the region column into a factor and order it by the population in each
+# region: this sorts the bars in the chart from largest to smallest
+df$region <- factor(df$region)
+df$region <- fct_reorder(df$region, df$population, max)
+
+# Create the plot -------------------------------------------------------------
+
+# Use ggplot to create a plot with data
+plot <- ggplot(data = df) +
+    # Add a column geometry for the bars
+    geom_col(
+        mapping = aes(
+            x = population,
+            y = region),
+        fill = pilot_color("navy")) +
+    # Add a text geometry for the labels: geom_text_pilot uses the theme fonts
+    geom_text_pilot(
+        mapping = aes(
+            x = population,
+            y = region,
+            label = format(population, digits = 2)),
+        hjust = "center",
+        nudge_x = -0.4) +
+    # Set labels for the axes, but don't set titles here
+    labs(
+        x = "Millions of people",
+        y = NULL) +
+    # Configure the the x and y axes, removing the expansion for the x axis
+    scale_x_continuous(
+        limits = c(0, 10),
+        breaks = seq(0, 10, 2),
+        expand = c(0,0)) +
+    scale_y_discrete(
+        expand = expansion(add = c(0.6, 0.6))) +
+    # Add the Pilot theme, setting a bottom axis with no gridlines
+    theme_pilot(
+        axes = "b",
+        grid = "")
+
+# After creating the plot, add a title and subtitle with add_pilot_titles
+plot <- add_pilot_titles(
+    plot,
+    title = "Countries and regions vary in population",
+    subtitle = "Population of countries and regions in mid-2020, United Kingdom")
+
+# Save the plot in different formats ------------------------------------------
+
+# Save a high resolution export of the plot as a png
+save_png(
+    "bar-chart-labels.png",
+    plot = plot,
+    width = 7.7,
+    height = 6.2)
+
+# Save an editable verson of the plot as an svg
+save_svg(
+    "bar-chart-labels.svg",
+    plot = plot,
+    width = 7.7,
+    height = 6.2)
+```
+
+### Line chart
+
+<img src="gallery/examples/line-chart/line-chart.png" width="800" />
+
+```r
+# Imports ---------------------------------------------------------------------
+
+library(tidyverse)
+library(pilot)
+
+# Read in and prepare the data ------------------------------------------------
+
+# Load the data from the csv as a dataframe
+df <- read_csv("line-chart.csv")
+
+# Create the plot -------------------------------------------------------------
+
+# Use ggplot to create a plot with data and mappings
+plot <- ggplot(
+        data = df,
+        mapping = aes(
+            x = quarter,
+            y = estimate,
+            color = flow)) +
+    # Add a line geometry to draw lines
+    geom_line(size = 1.1) +
+    # Set labels for the axes, legend, and caption, but don't set titles here
+    labs(
+        color = NULL,
+        x = NULL,
+        y = "Thousands of people",
+        caption = "Source: ONS, Provisional LTIM estimates") +
+    # Configure the the x and y axes: we set the y axis breaks and limits
+    scale_x_date(
+        expand = c(0, 0)) +
+    scale_y_continuous(
+        breaks = seq(0, 800, 200),
+        limits = c(0, 800),
+        expand = c(0, 0)) +
+    # Add the Pilot theme, setting a bottom axis and horizontal gridlines
+    theme_pilot(
+        axes = "b",
+        grid = "h") +
+    # Use scale_color_manual and pilot_color to set colors for each lines
+    scale_color_manual(values = c(
+        "Immigration" = pilot_color("navy"),
+        "Net migration" = pilot_color("blue"))) +
+    # Here we use a theme customisation to overlay the legend on the plot area:
+    # We could have used legend_position = "top-right" in theme_pilot
+    # to put the legend at the top-right above the plot area
+    theme(
+        legend.position = c(1.03, 0.99),
+        legend.justification = c(1, 1),
+        legend.direction = "horizontal",
+        legend.text = element_text(margin = margin(r = 10)))
+
+# After creating the plot, add a title and subtitle with add_pilot_titles
+plot <- add_pilot_titles(
+    plot,
+    title = "Net migration fell after the EU referendum",
+    subtitle = "International migration in the year ending each quarter")
+
+# Save the plot in different formats ------------------------------------------
+
+# Save a high resolution export of the plot as a png
+save_png(
+    "line-chart.png",
+    plot = plot,
+    width = 7.7,
+    height = 5.8)
+
+# Save an editable verson of the plot as an svg
+save_svg(
+    "line-chart.svg",
+    plot = plot,
+    width = 7.7,
+    height = 5.8)
+```
+
+### Area chart
+
+<img src="gallery/examples/area-chart-annotations/area-chart-annotations.png" width="800" />
+
+```r
+# Imports ---------------------------------------------------------------------
+
+library(tidyverse)
+library(scales)
+library(pilot)
+
+# Read in and prepare the data ------------------------------------------------
+
+# Load the data from the csv as a dataframe and pivot it into a tidy format
+df <- read_csv("area-chart-annotations.csv") %>%
+    pivot_longer(
+        cols = -date,
+        names_to = "energy_source",
+        values_to = "gwh")
+
+# Turn the energy_source column into a factor: setting the order of the levels
+# controls the order of the categories from top to bottom
+df$energy_source <- factor(
+    df$energy_source,
+    levels = c("other", "renewables"))
+
+# Create the plot -------------------------------------------------------------
+
+# Use ggplot to create a plot with data and mappings
+plot <- ggplot(
+        data = df,
+        mapping = aes(x = date, y = gwh, fill = energy_source)) +
+    # Add an area geometry to fill areas based on the data
+    geom_area() +
+    # Set labels for the axes, but don't set titles here
+    labs(
+        x = NULL,
+        y = NULL,
+        caption = "Source: BEIS, Digest of UK Energy Statistics, Table 5.3") +
+    # Configure the the x and y axes: we set the y axis breaks and limits, and
+    # we turn off the expansion on both axes
+    scale_x_date(
+        expand = c(0, 0)) +
+    scale_y_continuous(
+        label = comma,
+        limits = c(0, 402000),
+        breaks = seq(0, 400000, 100000),
+        expand = c(0, 0)) +
+    # Use annotate_pilot to add annotations to a plot: this function does
+    # the same thing as annotate but it automatically sets the fonts to match
+    # the theme style; position each annotation using values on the axis scales
+    annotate_pilot(
+        x = as.Date("2013-10-07"),
+        y = 200000,
+        label = "Non-renewable",
+        color = "#ffffff",
+        hjust = 0) +
+    annotate_pilot(
+        x = as.Date("2015-04-01"),
+        y = 40000,
+        label = "Renewable",
+        color = "#202020",
+        hjust = 0) +
+    # Add the Pilot theme, turning on the bottom and left axes, and turning off
+    # the gridlines and legend
+    theme_pilot(
+        axes = "bl",
+        grid = "",
+        legend_position = "none") +
+    # Use scale_fill_manual and pilot_color to set category colors
+    scale_fill_manual(values = c(
+        "renewables" = pilot_color("green"),
+        "other" = pilot_color("navy")))
+
+# After creating the plot, add a title and subtitle with add_pilot_titles
+    plot <- add_pilot_titles(
+        plot,
+        title = "Renewables are growing as a share of electricity generation",
+        subtitle = "Electricity generation by fuel type in the United Kingdom from 1996 to 2020, GWh")
+
+# Save the plot in different formats ------------------------------------------
+
+# Save a high resolution export of the plot as a png
+save_png(
+    "area-chart-annotations.png",
+    plot = plot,
+    width = 7.7,
+    height = 5.8)
+
+# Save an editable verson of the plot as an svg
+save_svg(
+    "area-chart-annotations.svg",
+    plot = plot,
+    width = 7.7,
+    height = 5.8)
+```
+
+### Stacked column chart
+
+<img src="gallery/examples/stacked-column-chart/stacked-column-chart.png" width="800" />
+
+```r
+# Imports ---------------------------------------------------------------------
+
+library(tidyverse)
+library(pilot)
+
+# Read in and prepare the data ------------------------------------------------
+
+# Load the data from the csv as a dataframe
+df <- read_csv("stacked-column-chart.csv")
+
+# Convert the year to character data: we don't want to treat this as a date or
+# a number in this case, it is just a label for each bar
+df$year <- as.character(df$year)
+
+# Turn the nationality column into a factor: setting the order of the levels
+# controls the order of the categories in each bar from top to bottom
+df$nationality <- factor(df$nationality, levels = c("Non-EU", "EU", "British"))
+
+# Create the plot -------------------------------------------------------------
+
+# Use ggplot to create a plot with data and mappings
+plot <- ggplot(
+        data = df,
+        mapping = aes(
+            x = year,
+            y = estimate,
+            fill = nationality)) +
+    # Add a col geometry for columns
+    geom_col(width = 0.8) +
+    # Set labels for the axes, legend, and caption, but don't set titles here
+    labs(
+        x = NULL,
+        y = NULL,
+        fill = NULL,
+        caption = "Source: ONS, Provisional LTIM estimates") +
+    # Configure the the x and y axes: set the y axis breaks and limits, and
+    # turn off the y-axis expansion
+    scale_x_discrete() +
+    scale_y_continuous(
+        limits = c(0, 700),
+        breaks = seq(0, 700, 100),
+        expand = c(0,0)) +
+    # Add the Pilot theme: set the grid to horizontal, the legend to top-left,
+    # and the caption to left
+    theme_pilot(
+        grid = "h",
+        legend_position = "top-left",
+        caption_position = "left") +
+    # Use scale_fill_manual and pilot_color to set category colors
+    scale_fill_manual(values = c(
+        "British" = pilot_color("yellow"),
+        "EU" = pilot_color("navy"),
+        "Non-EU" = pilot_color("blue")))
+
+# After creating the plot, add a title and subtitle with add_pilot_titles
+plot <- add_pilot_titles(
+    plot,
+    title = "Immigration is stable but the composition has changed",
+    subtitle = "Immigration by nationality in each year ending September (000s)")
+
+# Save the plot in different formats ------------------------------------------
+
+# Save a high resolution export of the plot as a png
+save_png(
+    "stacked-column-chart.png",
+    plot = plot,
+    width = 7.7,
+    height = 5.8)
+
+# Save an editable verson of the plot as an svg
+save_svg(
+    "stacked-column-chart.svg",
+    plot = plot,
+    width = 7.7,
+    height = 5.8)
+```
+
+### Small multiple scatterplot
+
+<img src="gallery/examples/scatter-chart-facets/scatter-chart-facets.png" width="800" />
+
+```r
+# Imports ---------------------------------------------------------------------
+
+library(tidyverse)
+library(scales)
+library(pilot)
+
+# Read in and prepare the data ------------------------------------------------
+
+# Load the data from the csv as a dataframe and filter for GB constituencies
+df <- read_csv("scatter-chart-facets.csv") %>%
+    filter(! is.na(classification))
+
+# Turn the classification column into a factor: setting the order of the levels
+# controls the order of the categories in the legend from top to bottom
+settlement_classes <- c(
+    "London",
+    "Other city",
+    "Large town",
+    "Medium town",
+    "Small town",
+    "Village")
+
+df$classification <- factor(df$classification, levels = settlement_classes)
+
+# Create the plot -------------------------------------------------------------
+
+# Use ggplot to create a plot with data and mappings
+plot <- ggplot(
+        data = df,
+        mapping = aes(
+            x = median_age,
+            y = turnout,
+            color = classification)) +
+    # Add a point geometry to add points: set shape = 16 to match house style
+    geom_point(
+        shape = 16,
+        size = 2,
+        alpha = 0.6) +
+    # Use facet_wrap to set the variable to facet with
+    facet_wrap(~ classification) +
+    # Set labels for the axes, colors and caption: DON'T set titles here
+    labs(
+        x = "Median age",
+        y = "Turnout",
+        color = "Settlement class") +
+    # Configure the the x and y axes: set the x axis limits; set the y axis
+    # limits and the y axis labels to show percentages to the nearest percent,
+    # turn off the expansion on both axes
+    scale_x_continuous(
+        expand = c(0, 0),
+        limits = c(25, 55),
+        breaks = seq(25, 55, 10)) +
+    scale_y_continuous(
+        expand = c(0, 0),
+        limits = c(0.5, 0.8),
+        label = percent_format(accuracy = 1)) +
+    # Add the Pilot theme: turn off the axes, set the gridlines to
+    # both horizontal and vertical, and turn off the legend
+    theme_pilot(
+        axes = "",
+        grid = "hv",
+        legend_position = "none") +
+    # Use scale_color_manual and pilot_color to set category colors
+    scale_color_manual(values = c(
+        "London" = pilot_color("navy"),
+        "Other city" = pilot_color("blue"),
+        "Large town" = pilot_color("brown"),
+        "Medium town" = pilot_color("green"),
+        "Small town" = pilot_color("orange"),
+        "Village" = pilot_color("purple")))
+
+# After creating the plot, add a title and subtitle with add_pilot_titles
+plot <- add_pilot_titles(
+    plot,
+    title = "Turnout was higher in older, less urban constituencies",
+    subtitle = "Constituencies by age, turnout and settlement class, 2017")
+
+# Save the plot in different formats ------------------------------------------
+
+# Save a high resolution export of the plot as a png
+save_png(
+    "scatter-chart-facets.png",
+    plot = plot,
+    width = 7.7,
+    height = 6.3)
+
+# Save an editable verson of the plot as an svg
+save_svg(
+    "scatter-chart-facets.svg",
+    plot = plot,
+    width = 7.7,
+    height = 6.3)
+```
+
+### Regression scatterplot
+
+<img src="gallery/examples/scatter-chart-regression/scatter-chart-regression.png" width="800" />
+
+```r
+# Imports ---------------------------------------------------------------------
+
+library(tidyverse)
+library(pilot)
+
+# Read in and prepare the data ------------------------------------------------
+
+# Load the data from the csvs as dataframes
+df_data <- read_csv("scatter-chart-regression-data.csv")
+df_posterior <- read_csv("scatter-chart-regression-posterior.csv")
+
+# Create the plot -------------------------------------------------------------
+
+# Use ggplot to create a plot with data and mappings for the posterior
+plot <- ggplot(
+        data = df_posterior,
+        mapping = aes(x = weight)) +
+    # Add a ribbon geometry for the posterior prediction intervals
+    geom_ribbon(
+        mapping = aes(
+            ymin = lower_prediction,
+            ymax = upper_prediction),
+        fill = pilot_color("orange"),
+        alpha = 0.5)  +
+    # Add a ribbon geometry for the posterior slope parameter intervals
+    geom_ribbon(
+        mapping = aes(
+            ymin = lower_parameter,
+            ymax = upper_parameter),
+        fill = pilot_color("brown"),
+        alpha = 0.5)  +
+    # Add a line geometry for the posterior slope parameter central estimate
+    geom_line(
+        mapping = aes(y = height),
+        color = pilot_color("brown")) +
+    # Add a point geometry for the regression data
+    geom_point(
+        data = df_data,
+        mapping = aes(
+            x = weight,
+            y = height),
+        shape = 16,
+        size = 2,
+        color = "#404040",
+        alpha = 0.6) +
+    # Set labels for the axes and caption, but don't set titles here
+    labs(
+        x = "Weight",
+        y = "Height",
+        caption = "Source: Richard McElreath, Statistical Rethinking, Figure 4.10") +
+    # Configure the the axes: set the axis limits and turn off the expansion
+    scale_x_continuous(
+        expand = c(0, 0)) +
+    scale_y_continuous(
+        expand = c(0, 0),
+        limits = c(120, 190)) +
+    # Add the Pilot theme: set the axes to bottom and left, the gridlines to
+    # horizontal and vertical, and the caption to left
+    theme_pilot(
+        axes = "bl",
+        grid = "hv",
+        caption_position = "left")
+
+# After creating the plot, add a title and subtitle with add_pilot_titles
+plot <- add_pilot_titles(
+    plot,
+    title = "Height increases as a function of weight",
+    subtitle = "Fitted regression line, slope interval, and 89% prediction interval")
+
+# Save the plot in different formats ------------------------------------------
+
+# Save a high resolution export of the plot as a png
+save_png(
+    "scatter-chart-regression.png",
+    plot = plot,
+    width = 7.7,
+    height = 6.4)
+
+# Save an editable verson of the plot as an svg
+save_svg(
+    "scatter-chart-regression.svg",
+    plot = plot,
+    width = 6.4,
+    height = 6.4)
+```

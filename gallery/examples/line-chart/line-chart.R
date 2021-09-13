@@ -15,7 +15,7 @@
 # Imports ---------------------------------------------------------------------
 
 library(tidyverse)
-# library(pilot)
+library(pilot)
 
 # Read in and prepare the data ------------------------------------------------
 

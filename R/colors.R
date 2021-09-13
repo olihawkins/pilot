@@ -4,13 +4,13 @@
 #' @export
 
 pilot_colors <- c(
-    "navy"   = "#204466",
-    "blue"   = "#249db5",
-    "brown"    = "#b84818",
+    "navy" = "#204466",
+    "blue" = "#249db5",
+    "brown" = "#b84818",
     "green" = "#30c788",
-    "yellow"  = "#ffc517",
+    "yellow" = "#ffc517",
     "purple" = "#9956db",
-    "orange" = "#e77d00")
+    "orange" = "#f28100")
 
 #' Get the hex code for a pilot color
 #'

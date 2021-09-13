@@ -28,7 +28,7 @@ plot <- ggplot(
             color = class)) + 
     geom_point() +
     labs(
-        title = "Compact cars with smaller engines are more efficient",
+        title = "Cars with smaller engines are more efficient",
         subtitle = "Engine size by fuel efficiency and class",
         x = "Engine size in litres",
         y = "Miles per gallon",
@@ -38,7 +38,9 @@ plot <- ggplot(
     scale_color_pilot()
 ```
 
-By default, ggplot2 horizontally aligns the title and subtitle with the left-hand edge of the plotting area. A helper function called `add_pilot_titles` is available that will align the title and subtitle with the left-hand edge of the x-axis. To use it, first create the plot in the normal way but without specifying the title and subtitle, then apply `add_pilot_titles` to add the titles to the plot. 
+<img src="gallery/examples/scatter-chart-basic/scatter-chart-basic-1.png" width="800" />
+
+By default, ggplot2 horizontally aligns the title and subtitle with the left-hand edge of the plotting area. A helper function called `add_pilot_titles` is available that will align the title and subtitle with the left-hand edge of the x-axis instead. To use it, first create the plot in the normal way, but without specifying the title and subtitle, and then use `add_pilot_titles` to add the titles to the plot. 
 
 ```r
 library(ggplot2)
@@ -61,17 +63,19 @@ plot <- ggplot(
 
 plot <- add_pilot_titles(
     plot,
-    title = "Compact cars with smaller engines are more efficient",
+    title = "Cars with smaller engines are more efficient",
     subtitle = "Engine size by fuel efficiency and class")
 ```
+
+<img src="gallery/examples/scatter-chart-basic/scatter-chart-basic-2.png" width="800" />
 
 Note that `add_pilot_titles` uses `patchwork` behind the scenes to compose a new plot from the existing plot and the titles. So if you want to adjust the plot margins using a `theme` customisation, do it *after* you have applied the titles, otherwise your customisation will be overwritten by `add_pilot_titles`.
 
 ## Colors
 
-This theme includes an accessible discrete color palette, comprising seven colors that are visually distinct to people with the most commmon types of color blindness. These colors are available in a named vector called `pilot_colors`.
+The package includes an accessible discrete color palette, comprising seven colors that aim to be visually distinct to people with the most commmon forms of color blindness. You can see what the colors look like under different conditions of color blindness using the [Viz Palette](https://projects.susielu.com/viz-palette?colors=[%22#204466%22,%22#b84818%22,%22#9956db%22,%22#249db5%22,%22#f28100%22,%22#30c788%22,%22#ffc517%22]) tool. 
 
-The base color names are:
+These colors are available in a named vector called `pilot_colors`. The base color names are:
 
 * __navy__
 * __blue__
@@ -89,7 +93,9 @@ scale_color_manual(values = c(
     "b" = pilot_color("blue")))
 ```
 
-These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors using `scale_color_pilot` and `scale_fill_pilot`. However, care should be taken in how you use these scales. For convenience these scales support ggplot2's color interpolation feature. But expanding the seven color palette to represent more than seven categories risks creating new colors that are no longer visually distinct to people with color blindness. The sequence of colours in the main palette has been chosen to reduce this risk, but if you want to ensure the colors remain distinct, you should only use these scales with discrete data that has the same number of categories as the palette you choose. More information on these scales can be found in the function reference below.
+These colors are also avaialable as ggplot2 scales with a range of palettes representing different subsets of the colors. See `scale_color_pilot` and `scale_fill_pilot` for further details in the function reference below. 
+
+However, care should be taken in how you use these scales. For convenience, these scales support ggplot2's color interpolation feature. But expanding the seven color palette to represent more than seven categories risks creating new colors that are no longer visually distinct to people with color blindness. To ensure the colors remain distinct, you should only use these scales with discrete data that has the same number of categories as the palette that you choose.
 
 ## Fonts
 
@@ -153,8 +159,8 @@ Use `scale_color_pilot()` or `scale_fill_pilot()` as approriate. Both functions 
 
 ---
 
-_pilot_::__scale_color_pilot__(_palette = "main"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
-_pilot_::__scale_fill_pilot__(_palette = "main"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
+_pilot_::__scale_color_pilot__(_palette = "seven"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
+_pilot_::__scale_fill_pilot__(_palette = "seven"_, _discrete = TRUE_, _reverse = FALSE_, _..._)
 
 Sets the scales with the following arguments. The default palette is "five".
 

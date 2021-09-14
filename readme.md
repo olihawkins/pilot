@@ -73,7 +73,7 @@ Note that `add_pilot_titles` uses `patchwork` behind the scenes to compose a new
 
 ## Colors
 
-The package includes an accessible discrete color palette, comprising seven colors that aim to be visually distinct to people with the most commmon forms of color blindness. You can see what the colors look like under different conditions of color blindness using the [Viz Palette](https://projects.susielu.com/viz-palette?colors=[%22#204466%22,%22#b84818%22,%22#9956db%22,%22#249db5%22,%22#f28100%22,%22#30c788%22,%22#ffc517%22]) tool. 
+The package includes an accessible discrete color palette, comprising seven colors that aim to be visually distinct to people with the most common forms of color blindness. You can see what the colors look like under different conditions of color blindness using the [Viz Palette](https://projects.susielu.com/viz-palette?colors=[%22#204466%22,%22#b84818%22,%22#9956db%22,%22#249db5%22,%22#f28100%22,%22#30c788%22,%22#ffc517%22]) tool. 
 
 These colors are available in a named vector called `pilot_colors`. The base color names are:
 

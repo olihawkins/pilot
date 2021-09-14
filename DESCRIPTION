@@ -1,7 +1,7 @@
 Package: pilot
 Type: Package
 Title: A minimal ggplot2 theme with an accessible discrete color palette
-Version: 3.4.9
+Version: 3.4.10
 Authors@R: 
     person(
         given = "Oliver",
@@ -12,7 +12,6 @@ Maintainer: Oliver Hawkins <oli@olihawkins.com>
 Description: A minimal ggplot2 theme with an accessible discrete color palette.
 License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports:
     ggplot2,
     magrittr,

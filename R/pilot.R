@@ -1,6 +1,7 @@
 #' pilot: A minimal and accessible ggplot2 theme
 #'
-#' A minimal, general purpose ggplot2 theme with an accessible discrete color palette.
+#' A minimal, general purpose ggplot2 theme with an accessible discrete color
+#' palette.
 #'
 #' @docType package
 #' @name pilot

@@ -40,7 +40,7 @@ plot <- ggplot(
 
 <img src="gallery/examples/scatter-chart-basic/scatter-chart-basic-1.png" width="800" />
 
-By default, ggplot2 horizontally aligns the title and subtitle with the left-hand edge of the plotting area. A helper function called `add_pilot_titles` is available that will align the title and subtitle with the left-hand edge of the x-axis instead. To use it, first create the plot in the normal way, but without specifying the title and subtitle, and then use `add_pilot_titles` to add the titles to the plot. 
+By default, ggplot2 horizontally aligns the title and subtitle with the left-hand edge of the plotting area. A helper function called `add_pilot_titles` is available that will align the title and subtitle with the left-hand edge of the whole plot instead. To use it, first create the plot in the normal way, but without specifying the title and subtitle, and then use `add_pilot_titles` to add the titles to the plot. 
 
 ```r
 library(ggplot2)
@@ -146,7 +146,7 @@ _pilot_::__theme_pilot__(_axes = ""_, _grid = "hv"_, _legend_position = "right"_
 
 Set the theme with the following arguments:
 
-* __axes__ A string indicating which axes should have lines and ticks. Specify which axes to show by including the matching characters in the string: "t" for top, "r" for right, "b" for bottom, "l" for left. You will need to ensure this argument is consistent with the axes settings in your plot for the lines and ticks to be displayed. The default is an empty string, meaning ticks and lines for the bottom and left axes are shown by default.
+* __axes__ A string indicating which axes should have lines and ticks. Specify which axes to show by including the matching characters in the string: "t" for top, "r" for right, "b" for bottom, "l" for left. You will need to ensure this argument is consistent with the axes settings in your plot for the lines and ticks to be displayed. The default is an empty string, meaning no ticks and lines are shown on any axes by default.
 * __grid__ A string indicating which gridlines should be shown. Specify the gridlines to show by including the matching characters in the string: "h" for horizontal, "v" for vertical. The default is "hv", meaning both gridlines are shown by default.
 * __legend_position__ A string indicating the position of the legend. Valid positions are "top", "right", "bottom", "left", "top-right", "top-left", "bottom-right", "bottom-left", and "none". The default is "right".
 * __caption_position__ A string indicating the horizontal position of the caption. Valid positions are "left" or "right". The default is "right".

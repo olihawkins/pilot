@@ -3,7 +3,7 @@
 \docType{package}
 \name{pilot}
 \alias{pilot}
-\title{pilot: Personal plotting tools}
+\title{pilot: A minimal and accessible ggplot2 theme}
 \description{
-Plotting tools for personal projects.
+A minimal, general purpose ggplot2 theme with an accessible discrete color palette.
 }

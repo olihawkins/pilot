@@ -1,7 +1,7 @@
 Package: pilot
 Type: Package
 Title: A minimal ggplot2 theme with an accessible discrete color palette
-Version: 3.4.7
+Version: 3.4.8
 Authors@R: 
     person(
         given = "Oliver",

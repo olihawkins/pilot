@@ -1,6 +1,6 @@
 # pilot
 
-Pilot is an attractive, minimal, general purpose ggplot2 theme with an accessible discrete color palette.
+`pilot` is an attractive, minimal, general purpose ggplot2 theme with an accessible discrete color palette.
 
 
 ## Installation
@@ -241,7 +241,7 @@ plot <- ggplot(data = df) +
         expand = c(0,0)) +
     scale_y_discrete(
         expand = expansion(add = c(0.6, 0.6))) +
-    # Add the Pilot theme, setting a bottom axis with no gridlines
+    # Add the pilot theme, setting a bottom axis with no gridlines
     theme_pilot(
         axes = "b",
         grid = "")
@@ -308,7 +308,7 @@ plot <- ggplot(
         breaks = seq(0, 800, 200),
         limits = c(0, 800),
         expand = c(0, 0)) +
-    # Add the Pilot theme, setting a bottom axis and horizontal gridlines
+    # Add the pilot theme, setting a bottom axis and horizontal gridlines
     theme_pilot(
         axes = "b",
         grid = "h") +
@@ -411,7 +411,7 @@ plot <- ggplot(
         label = "Renewable",
         color = "#202020",
         hjust = 0) +
-    # Add the Pilot theme, turning on the bottom and left axes, and turning off
+    # Add the pilot theme, turning on the bottom and left axes, and turning off
     # the gridlines and legend
     theme_pilot(
         axes = "bl",
@@ -492,7 +492,7 @@ plot <- ggplot(
         limits = c(0, 700),
         breaks = seq(0, 700, 100),
         expand = c(0,0)) +
-    # Add the Pilot theme: set the grid to horizontal, the legend to top-left,
+    # Add the pilot theme: set the grid to horizontal, the legend to top-left,
     # and the caption to left
     theme_pilot(
         grid = "h",
@@ -588,7 +588,7 @@ plot <- ggplot(
         expand = c(0, 0),
         limits = c(0.5, 0.8),
         label = percent_format(accuracy = 1)) +
-    # Add the Pilot theme: turn off the axes, set the gridlines to
+    # Add the pilot theme: turn off the axes, set the gridlines to
     # both horizontal and vertical, and turn off the legend
     theme_pilot(
         axes = "",
@@ -687,7 +687,7 @@ plot <- ggplot(
     scale_y_continuous(
         expand = c(0, 0),
         limits = c(120, 190)) +
-    # Add the Pilot theme: set the axes to bottom and left, the gridlines to
+    # Add the pilot theme: set the axes to bottom and left, the gridlines to
     # horizontal and vertical, and the caption to left
     theme_pilot(
         axes = "bl",

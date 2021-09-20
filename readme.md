@@ -177,6 +177,17 @@ Sets the scales with the following arguments. The default palette is "seven".
 
 ---
 
+### Wrapper functions
+
+The package provides some variants of standard ggplot2 functions to make it easier to use the theme. These are:
+
+- `geom_text_pilot`
+- `annotate_pilot`
+
+These are simple wrappers around the standard versions of these functions which set the font family, style and color to those of the theme. All other arguments are passed on to the underlying ggplot2 function transparently.
+
+---
+
 ## Gallery
 
 The following gallery shows examples of how to create different types of charts with `pilot`. The datasets for each of these can be found in the [gallery/examples](gallery/examples) folder.

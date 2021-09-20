@@ -184,7 +184,7 @@ The package provides some variants of standard ggplot2 functions to make it easi
 - `geom_text_pilot`
 - `annotate_pilot`
 
-These are simple wrappers around the standard versions of these functions which set the font family, style and color to those of the theme. All other arguments are passed on to the underlying ggplot2 function transparently.
+These are simple wrappers around the standard versions of these functions, which set the font family, style and color to those of the theme. All other arguments are passed on to the underlying ggplot2 functions transparently.
 
 ---
 

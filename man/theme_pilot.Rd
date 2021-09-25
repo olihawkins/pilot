@@ -60,28 +60,28 @@ positions are "top", "right", "bottom", "left", "top-right", "top-left",
 caption. Valid positions are "left" or "right". The default is "right".}
 
 \item{title_family}{A string indicating the font-family to use for the
-title. The default is "Trebuchet MS".}
+title. The default depends on the operating system.}
 
 \item{subtitle_family}{A string indicating the font-family to use for the
-subtitle. The default is "Trebuchet MS".}
+subtitle. The default depends on the operating system.}
 
 \item{axis_title_family}{A string indicating the font-family to use for
-axis titles. The default is "Trebuchet MS".}
+axis titles. The default depends on the operating system.}
 
 \item{axis_text_family}{A string indicating the font-family to use for
-axis text. The default is "Trebuchet MS".}
+axis text. The default depends on the operating system.}
 
 \item{legend_title_family}{A string indicating the font-family to use for
-legend titles. The default is "Trebuchet MS".}
+legend titles. The default depends on the operating system.}
 
 \item{legend_text_family}{A string indicating the font-family to use for
-legend text. The default is "Trebuchet MS".}
+legend text. The default depends on the operating system.}
 
 \item{facet_title_family}{A string indicating the font-family to use for
-facet titles. The default is "Trebuchet MS".}
+facet titles. The default depends on the operating system.}
 
 \item{caption_family}{A string indicating the font-family to use for
-captions. The default is "Trebuchet MS".}
+captions. The default depends on the operating system.}
 
 \item{title_size}{An integer indicating the font size to use for the title
 in points. The default is 17 points.}

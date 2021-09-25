@@ -16,7 +16,7 @@ geom_text_pilot(
 default is "#ffffff".}
 
 \item{family}{A string indicating the font family to use for the text. The
-default is "Trebuchet MS".}
+default depends on the operating system.}
 
 \item{fontface}{A string indicating the font face to use for the text. The
 default is "bold".}

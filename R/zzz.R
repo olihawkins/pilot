@@ -31,13 +31,13 @@ set_pilot_family <- function(family, title_family = NULL) {
 .onLoad <- function(libname, pkgname) {
 
     # Set a default fonts if system can't be detected
-    family <- "Arial"
+    family <- ""
     title_family <- family
 
     # Set a default font for each main desktop OS
     switch(Sys.info()[['sysname']],
         Windows = {
-            family <- "Trebuchet MS"
+            family <- ""
             title_family <- family},
         Linux = {
             family <- ""

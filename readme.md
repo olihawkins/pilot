@@ -99,7 +99,7 @@ However, care should be taken in how you use these scales. For convenience, thes
 
 ## Fonts
 
-The theme uses a different default font on each desktop opertating system. These are "Avenir Next" on MacOS, "Trebuchet MS" on Windows, and the default sans-serif font on Linux. 
+The theme uses a different default font depending on the opertating system. This is "Avenir Next" on MacOS and the default sans-serif font on Windows and Linux. 
 
 You can customise the fonts the theme uses in three ways: 
 

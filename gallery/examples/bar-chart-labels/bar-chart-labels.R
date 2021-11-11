@@ -71,15 +71,17 @@ plot <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "bar-chart-labels.png",
+ggsave(
+    filename = "bar-chart-labels.png",
     plot = plot,
     width = 7.7,
-    height = 6.2)
+    height = 6.2,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "bar-chart-labels.svg",
+ggsave(
+    filename = "bar-chart-labels.svg",
     plot = plot,
     width = 7.7,
-    height = 6.2)
+    height = 6.2,
+    dpi = 400)

@@ -72,15 +72,17 @@ plot <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "line-chart.png",
+ggsave(
+    filename = "line-chart.png",
     plot = plot,
     width = 7.7,
-    height = 5.8)
+    height = 5.8,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "line-chart.svg",
+ggsave(
+    filename = "line-chart.svg",
     plot = plot,
     width = 7.7,
-    height = 5.8)
+    height = 5.8,
+    dpi = 400)

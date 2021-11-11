@@ -57,27 +57,31 @@ plot_2 <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plots as a png
-save_png(
-    "scatter-chart-basic-1.png",
+ggsave(
+    filename = "scatter-chart-basic-1.png",
     plot = plot_1,
     width = 7.7,
-    height = 5.2)
+    height = 5.2,
+    dpi = 400)
 
-save_png(
-    "scatter-chart-basic-2.png",
+ggsave(
+    filename = "scatter-chart-basic-2.png",
     plot = plot_2,
     width = 7.7,
-    height = 5.2)
+    height = 5.2,
+    dpi = 400)
 
 # Save an editable verson of the plots as an svg
-save_svg(
-    "scatter-chart-basic-1.svg",
+ggsave(
+    filename = "scatter-chart-basic-1.svg",
     plot = plot_1,
     width = 7.7,
-    height = 5.2)
+    height = 5.2,
+    dpi = 400)
 
-save_svg(
-    "scatter-chart-basic-2.svg",
+ggsave(
+    filename = "scatter-chart-basic-2.svg",
     plot = plot_2,
     width = 7.7,
-    height = 5.2)
+    height = 5.2,
+    dpi = 400)

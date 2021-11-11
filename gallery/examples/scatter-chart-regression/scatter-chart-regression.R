@@ -85,15 +85,17 @@ plot <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "scatter-chart-regression.png",
+ggsave(
+    filename = "scatter-chart-regression.png",
     plot = plot,
     width = 7.7,
-    height = 6.4)
+    height = 6.4,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "scatter-chart-regression.svg",
+ggsave(
+    filename = "scatter-chart-regression.svg",
     plot = plot,
     width = 6.4,
-    height = 6.4)
+    height = 6.4,
+    dpi = 400)

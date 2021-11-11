@@ -93,15 +93,17 @@ plot <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "scatter-chart-facets.png",
+ggsave(
+    filename = "scatter-chart-facets.png",
     plot = plot,
     width = 7.7,
-    height = 6.3)
+    height = 6.3,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "scatter-chart-facets.svg",
+ggsave(
+    filename = "scatter-chart-facets.svg",
     plot = plot,
     width = 7.7,
-    height = 6.3)
+    height = 6.3,
+    dpi = 400)

@@ -2,6 +2,31 @@
 
 `pilot` is an attractive, minimal, general purpose ggplot2 theme with an accessible discrete color palette.
 
+## Changes in version 4.0
+
+The custom functions for saving plots `save_png` and `save_svg` have been removed in favour of using `ggsave`. This removes an unnecessary dependency on `rsvg`, making the package easier to maintain and to use in different computing environments. The code examples have all been updated to reflect this change. 
+
+If you have existing code that uses the functions that have been removed, replacing them with `ggsave` is as easy as reversing the order of the first two arguments, which are for the `plot` and the `filename`. If you are using named arguments to set these values, it requires no change to the arguments at all. So for example, this call to `save_png`:
+
+```r
+save_png(
+    plot,
+    "plotfile.png",
+    width = 8,
+    height = 6)
+```
+
+Can be replaced with this call to `ggsave`:
+
+```r
+ggsave(
+    "plotfile.png",
+    plot,
+    width = 8,
+    height = 6)
+```
+
+Optionally, you may also wish to set the `dpi` argument in `ggsave` to `400`, as this was the default value for saving plots with `save_png`.
 
 ## Installation
 
@@ -255,18 +280,20 @@ plot <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "bar-chart-labels.png",
+ggsave(
+    filename = "bar-chart-labels.png",
     plot = plot,
     width = 7.7,
-    height = 6.2)
+    height = 6.2,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "bar-chart-labels.svg",
+ggsave(
+    filename = "bar-chart-labels.svg",
     plot = plot,
     width = 7.7,
-    height = 6.2)
+    height = 6.2,
+    dpi = 400)
 ```
 
 ### Line chart
@@ -334,18 +361,20 @@ plot <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "line-chart.png",
+ggsave(
+    filename = "line-chart.png",
     plot = plot,
     width = 7.7,
-    height = 5.8)
+    height = 5.8,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "line-chart.svg",
+ggsave(
+    filename = "line-chart.svg",
     plot = plot,
     width = 7.7,
-    height = 5.8)
+    height = 5.8,
+    dpi = 400)
 ```
 
 ### Area chart
@@ -431,18 +460,20 @@ plot <- ggplot(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "area-chart-annotations.png",
+ggsave(
+    filename = "area-chart-annotations.png",
     plot = plot,
     width = 7.7,
-    height = 5.8)
+    height = 5.8,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "area-chart-annotations.svg",
+ggsave(
+    filename = "area-chart-annotations.svg",
     plot = plot,
     width = 7.7,
-    height = 5.8)
+    height = 5.8,
+    dpi = 400)
 ```
 
 ### Stacked column chart
@@ -513,18 +544,20 @@ plot <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "stacked-column-chart.png",
+ggsave(
+    filename = "stacked-column-chart.png",
     plot = plot,
     width = 7.7,
-    height = 5.8)
+    height = 5.8,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "stacked-column-chart.svg",
+ggsave(
+    filename = "stacked-column-chart.svg",
     plot = plot,
     width = 7.7,
-    height = 5.8)
+    height = 5.8,
+    dpi = 400)
 ```
 
 ### Small multiple scatterplot
@@ -612,18 +645,20 @@ plot <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "scatter-chart-facets.png",
+ggsave(
+    filename = "scatter-chart-facets.png",
     plot = plot,
     width = 7.7,
-    height = 6.3)
+    height = 6.3,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "scatter-chart-facets.svg",
+ggsave(
+    filename = "scatter-chart-facets.svg",
     plot = plot,
     width = 7.7,
-    height = 6.3)
+    height = 6.3,
+    dpi = 400)
 ```
 
 ### Regression scatterplot
@@ -703,16 +738,18 @@ plot <- add_pilot_titles(
 # Save the plot in different formats ------------------------------------------
 
 # Save a high resolution export of the plot as a png
-save_png(
-    "scatter-chart-regression.png",
+ggsave(
+    filename = "scatter-chart-regression.png",
     plot = plot,
     width = 7.7,
-    height = 6.4)
+    height = 6.4,
+    dpi = 400)
 
 # Save an editable verson of the plot as an svg
-save_svg(
-    "scatter-chart-regression.svg",
+ggsave(
+    filename = "scatter-chart-regression.svg",
     plot = plot,
     width = 6.4,
-    height = 6.4)
+    height = 6.4,
+    dpi = 400)
 ```

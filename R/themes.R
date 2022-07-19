@@ -381,7 +381,7 @@ theme_pilot <- function (
 
 # Function to add correctly aligned titles ------------------------------------
 
-#' Add titles to a plot using the Cpilot theme style
+#' Add titles to a plot using the pilot theme style
 #'
 #' Use this function to add titles to a plot that uses \code{theme_pilot}.
 #' Using this functin to set the title and/or subtitle will ensure that title
@@ -404,19 +404,19 @@ theme_pilot <- function (
 #' @param subtitle A string containing the subtitle to add to the plot. Use
 #'   NULL if you do not want a subtitle.
 #' @param title_family A string indicating the font-family to use for the
-#'   title. The default is "National-LFSN Semibd".
+#'   title. The default depends on the operating system.
 #' @param subtitle_family A string indicating the font-family to use for the
-#'   subtitle. The default is "National-LFSN Book".
+#'   subtitle. The default depends on the operating system.
 #' @param title_size An integer indicating the font size to use for the title
-#'   in points. The default is 18 points.
+#'   in points. The default is 17 points.
 #' @param subtitle_size An integer indicating the font size to use for the
-#'   subtitle in points. The default is 14 points.
+#'   subtitle in points. The default is 12 points.
 #' @param title_color An RGB hex string indicating the color to use for the
-#'   title. The default is "#006548".
+#'   title. The default is "#404040".
 #' @param subtitle_color An RGB hex string indicating the color to use for the
-#'   subtitle. The default is "#006548".
+#'   subtitle. The default is "#404040".
 #' @param background_color An RGB hex string indicating the color to use for
-#'   the background. The default is "#f0eeed".
+#'   the background. The default is "#ffffff".
 #' @return A copy of the input plot with a title and/or subtitle added.
 #' @export
 

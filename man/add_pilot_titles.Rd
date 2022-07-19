@@ -2,7 +2,7 @@
 % Please edit documentation in R/themes.R
 \name{add_pilot_titles}
 \alias{add_pilot_titles}
-\title{Add titles to a plot using the Cpilot theme style}
+\title{Add titles to a plot using the pilot theme style}
 \usage{
 add_pilot_titles(
   plot,
@@ -27,25 +27,25 @@ you do not want a title.}
 NULL if you do not want a subtitle.}
 
 \item{title_family}{A string indicating the font-family to use for the
-title. The default is "National-LFSN Semibd".}
+title. The default depends on the operating system.}
 
 \item{subtitle_family}{A string indicating the font-family to use for the
-subtitle. The default is "National-LFSN Book".}
+subtitle. The default depends on the operating system.}
 
 \item{title_size}{An integer indicating the font size to use for the title
-in points. The default is 18 points.}
+in points. The default is 17 points.}
 
 \item{subtitle_size}{An integer indicating the font size to use for the
-subtitle in points. The default is 14 points.}
+subtitle in points. The default is 12 points.}
 
 \item{title_color}{An RGB hex string indicating the color to use for the
-title. The default is "#006548".}
+title. The default is "#404040".}
 
 \item{subtitle_color}{An RGB hex string indicating the color to use for the
-subtitle. The default is "#006548".}
+subtitle. The default is "#404040".}
 
 \item{background_color}{An RGB hex string indicating the color to use for
-the background. The default is "#f0eeed".}
+the background. The default is "#ffffff".}
 }
 \value{
 A copy of the input plot with a title and/or subtitle added.

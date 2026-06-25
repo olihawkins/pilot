@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='554.40pt' height='417.60pt' viewBox='0 0 554.40 417.60'>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='554.40pt' height='417.60pt' viewBox='0 0 554.40 417.60'>
+<g class='svglite'>
 <defs>
   <style type='text/css'><![CDATA[
     .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
@@ -8,6 +9,13 @@
       stroke-linecap: round;
       stroke-linejoin: round;
       stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
     }
   ]]></style>
 </defs>
@@ -18,7 +26,16 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMC4wMHw1NTQuNDB8MC4wMHw0MTcuNjA=)'>
-<rect x='-0.000000000000064' y='0.000000000000057' width='554.40' height='417.60' style='stroke-width: 0.00; stroke: #FFFFFF; fill: #FFFFFF;' />
+<rect x='-0.000000000000064' y='0.00' width='554.40' height='417.60' style='stroke-width: 0.00; stroke: #FFFFFF; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpNjYuNDJ8NTM0LjQ3fDc2LjMyfDM0Ny4wOA=='>
+    <rect x='66.42' y='76.32' width='468.06' height='270.76' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNjYuNDJ8NTM0LjQ3fDc2LjMyfDM0Ny4wOA==)'>
+</g>
+<g clip-path='url(#cpMC4wMHw1NTQuNDB8MC4wMHw0MTcuNjA=)'>
 </g>
 <defs>
   <clipPath id='cpMTkuOTN8NTM0LjQ3fDc2LjMyfDM5Ny42Nw=='>
@@ -30,47 +47,43 @@
 </g>
 <g clip-path='url(#cpMC4wMHw1NTQuNDB8MC4wMHw0MTcuNjA=)'>
 </g>
-<defs>
-  <clipPath id='cpNjkuMTd8NTM0LjQ3fDc2LjMyfDM0Ny4wOA=='>
-    <rect x='69.17' y='76.32' width='465.30' height='270.76' />
-  </clipPath>
-</defs>
-<g clip-path='url(#cpNjkuMTd8NTM0LjQ3fDc2LjMyfDM0Ny4wOA==)'>
-<polyline points='69.17,347.08 534.47,347.08 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
-<polyline points='69.17,279.39 534.47,279.39 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
-<polyline points='69.17,211.70 534.47,211.70 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
-<polyline points='69.17,144.01 534.47,144.01 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
-<polyline points='69.17,76.32 534.47,76.32 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
-<polyline points='69.17,147.06 80.94,142.32 92.83,145.70 104.85,139.61 116.88,142.66 128.64,139.95 140.54,135.55 152.56,139.27 164.59,144.35 176.48,155.18 188.37,162.96 200.40,170.41 212.42,169.73 224.19,170.75 236.08,167.36 248.10,156.53 260.13,158.56 271.89,149.76 283.79,141.64 295.81,127.76 307.84,121.33 319.60,116.93 331.49,119.98 343.52,127.76 355.54,122.35 367.44,121.33 379.33,126.41 391.35,133.52 403.38,136.56 415.14,138.26 427.04,144.35 439.06,130.47 451.09,129.12 462.85,136.23 474.74,134.53 486.77,133.86 498.79,142.66 510.56,139.95 522.45,140.96 534.47,129.80 ' style='stroke-width: 2.35; stroke: #204466; stroke-linecap: butt;' />
-<polyline points='69.17,269.57 80.94,266.87 92.83,264.50 104.85,262.47 116.88,260.44 128.64,253.33 140.54,251.30 152.56,254.01 164.59,262.81 176.48,274.31 188.37,281.42 200.40,286.16 212.42,292.59 224.19,291.57 236.08,287.17 248.10,277.36 260.13,276.68 271.89,268.22 283.79,261.79 295.81,249.94 307.84,242.50 319.60,235.05 331.49,235.73 343.52,241.14 355.54,235.73 367.44,236.74 379.33,243.51 391.35,253.33 403.38,261.79 415.14,264.84 427.04,269.91 439.06,263.48 451.09,262.81 462.85,268.90 474.74,266.87 486.77,263.48 498.79,268.56 510.56,273.30 522.45,278.04 534.47,265.85 ' style='stroke-width: 2.35; stroke: #249DB5; stroke-linecap: butt;' />
+<g clip-path='url(#cpNjYuNDJ8NTM0LjQ3fDc2LjMyfDM0Ny4wOA==)'>
+<polyline points='66.42,347.08 534.47,347.08 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
+<polyline points='66.42,279.39 534.47,279.39 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
+<polyline points='66.42,211.70 534.47,211.70 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
+<polyline points='66.42,144.01 534.47,144.01 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
+<polyline points='66.42,76.32 534.47,76.32 ' style='stroke-width: 0.75; stroke: #D8D8D8; stroke-linecap: butt;' />
+<polyline points='66.42,147.06 78.25,142.32 90.22,145.70 102.31,139.61 114.41,142.66 126.24,139.95 138.21,135.55 150.30,139.27 162.40,144.35 174.36,155.18 186.33,162.96 198.42,170.41 210.52,169.73 222.35,170.75 234.31,167.36 246.41,156.53 258.51,158.56 270.34,149.76 282.30,141.64 294.40,127.76 306.50,121.33 318.33,116.93 330.29,119.98 342.39,127.76 354.48,122.35 366.45,121.33 378.41,126.41 390.51,133.52 402.60,136.56 414.44,138.26 426.40,144.35 438.50,130.47 450.59,129.12 462.43,136.23 474.39,134.53 486.49,133.86 498.58,142.66 510.41,139.95 522.38,140.96 534.47,129.80 ' style='stroke-width: 2.35; stroke: #204466; stroke-linecap: butt;' />
+<polyline points='66.42,269.57 78.25,266.87 90.22,264.50 102.31,262.47 114.41,260.44 126.24,253.33 138.21,251.30 150.30,254.01 162.40,262.81 174.36,274.31 186.33,281.42 198.42,286.16 210.52,292.59 222.35,291.57 234.31,287.17 246.41,277.36 258.51,276.68 270.34,268.22 282.30,261.79 294.40,249.94 306.50,242.50 318.33,235.05 330.29,235.73 342.39,241.14 354.48,235.73 366.45,236.74 378.41,243.51 390.51,253.33 402.60,261.79 414.44,264.84 426.40,269.91 438.50,263.48 450.59,262.81 462.43,268.90 474.39,266.87 486.49,263.48 498.58,268.56 510.41,273.30 522.38,278.04 534.47,265.85 ' style='stroke-width: 2.35; stroke: #249DB5; stroke-linecap: butt;' />
 </g>
 <g clip-path='url(#cpMC4wMHw1NTQuNDB8MC4wMHw0MTcuNjA=)'>
-<text x='61.45' y='350.97' text-anchor='end' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='6.38px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='61.45' y='283.28' text-anchor='end' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='19.14px' lengthAdjust='spacingAndGlyphs'>200</text>
-<text x='61.45' y='215.59' text-anchor='end' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='19.14px' lengthAdjust='spacingAndGlyphs'>400</text>
-<text x='61.45' y='147.91' text-anchor='end' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='19.14px' lengthAdjust='spacingAndGlyphs'>600</text>
-<text x='61.45' y='80.22' text-anchor='end' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='19.14px' lengthAdjust='spacingAndGlyphs'>800</text>
-<polyline points='69.17,347.08 534.47,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
-<polyline points='69.17,349.82 69.17,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
-<polyline points='164.59,349.82 164.59,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
-<polyline points='260.13,349.82 260.13,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
-<polyline points='355.54,349.82 355.54,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
-<polyline points='451.09,349.82 451.09,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
-<text x='69.17' y='362.59' text-anchor='middle' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='25.52px' lengthAdjust='spacingAndGlyphs'>2010</text>
-<text x='164.59' y='362.59' text-anchor='middle' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='25.52px' lengthAdjust='spacingAndGlyphs'>2012</text>
-<text x='260.13' y='362.59' text-anchor='middle' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='25.52px' lengthAdjust='spacingAndGlyphs'>2014</text>
-<text x='355.54' y='362.59' text-anchor='middle' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='25.52px' lengthAdjust='spacingAndGlyphs'>2016</text>
-<text x='451.09' y='362.59' text-anchor='middle' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='25.52px' lengthAdjust='spacingAndGlyphs'>2018</text>
-<text transform='translate(27.72,211.70) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; fill: #404040; font-family: Avenir Next;' textLength='106.44px' lengthAdjust='spacingAndGlyphs'>Thousands of people</text>
-<rect x='342.50' y='79.03' width='205.93' height='28.24' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
-<rect x='353.46' y='84.51' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
-<line x1='355.19' y1='93.15' x2='369.01' y2='93.15' style='stroke-width: 2.35; stroke: #204466; stroke-linecap: butt;' />
-<rect x='447.15' y='84.51' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
-<line x1='448.87' y1='93.15' x2='462.70' y2='93.15' style='stroke-width: 2.35; stroke: #249DB5; stroke-linecap: butt;' />
-<text x='376.22' y='96.69' style='font-size: 10.00px; fill: #404040; font-family: Avenir Next;' textLength='55.48px' lengthAdjust='spacingAndGlyphs'>Immigration</text>
-<text x='469.91' y='96.69' style='font-size: 10.00px; fill: #404040; font-family: Avenir Next;' textLength='63.09px' lengthAdjust='spacingAndGlyphs'>Net migration</text>
-<text x='534.47' y='395.51' text-anchor='end' style='font-size: 9.00px; fill: #404040; font-family: Avenir Next;' textLength='164.18px' lengthAdjust='spacingAndGlyphs'>Source: ONS, Provisional LTIM estimates</text>
-<text x='19.93' y='49.52' style='font-size: 12.00px; fill: #404040; font-family: Avenir Next;' textLength='299.55px' lengthAdjust='spacingAndGlyphs'>International migration in the year ending each quarter</text>
-<text x='19.93' y='31.96' style='font-size: 17.00px; font-weight: 600; fill: #404040; font-family: Avenir Next;' textLength='331.55px' lengthAdjust='spacingAndGlyphs'>Net migration fell after the EU referendum</text>
+<text x='61.44' y='350.97' text-anchor='end' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='6.38px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='61.44' y='283.28' text-anchor='end' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='19.12px' lengthAdjust='spacingAndGlyphs'>200</text>
+<text x='61.44' y='215.59' text-anchor='end' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='19.12px' lengthAdjust='spacingAndGlyphs'>400</text>
+<text x='61.44' y='147.91' text-anchor='end' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='19.12px' lengthAdjust='spacingAndGlyphs'>600</text>
+<text x='61.44' y='80.22' text-anchor='end' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='19.12px' lengthAdjust='spacingAndGlyphs'>800</text>
+<polyline points='66.42,347.08 534.47,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<polyline points='66.42,349.82 66.42,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<polyline points='162.40,349.82 162.40,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<polyline points='258.51,349.82 258.51,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<polyline points='354.48,349.82 354.48,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<polyline points='450.59,349.82 450.59,347.08 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='66.42' y='362.59' text-anchor='middle' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>2010</text>
+<text x='162.40' y='362.59' text-anchor='middle' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>2012</text>
+<text x='258.51' y='362.59' text-anchor='middle' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>2014</text>
+<text x='354.48' y='362.59' text-anchor='middle' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>2016</text>
+<text x='450.59' y='362.59' text-anchor='middle' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>2018</text>
+<text transform='translate(27.72,211.70) rotate(-90)' text-anchor='middle' style='font-size: 11.00px;fill: #404040; font-family: "Avenir Next";' textLength='106.41px' lengthAdjust='spacingAndGlyphs'>Thousands of people</text>
+<rect x='359.23' y='79.03' width='189.28' height='28.24' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
+<rect x='364.71' y='84.51' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
+<line x1='366.44' y1='93.15' x2='380.26' y2='93.15' style='stroke-width: 2.35; stroke: #204466; stroke-linecap: butt;' />
+<rect x='452.81' y='84.51' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
+<line x1='454.54' y1='93.15' x2='468.36' y2='93.15' style='stroke-width: 2.35; stroke: #249DB5; stroke-linecap: butt;' />
+<text x='381.99' y='96.69' style='font-size: 10.00px;fill: #404040; font-family: "Avenir Next";' textLength='55.38px' lengthAdjust='spacingAndGlyphs'>Immigration</text>
+<text x='470.09' y='96.69' style='font-size: 10.00px;fill: #404040; font-family: "Avenir Next";' textLength='62.98px' lengthAdjust='spacingAndGlyphs'>Net migration</text>
+<text x='534.47' y='395.51' text-anchor='end' style='font-size: 9.00px;fill: #404040; font-family: "Avenir Next";' textLength='164.08px' lengthAdjust='spacingAndGlyphs'>Source: ONS, Provisional LTIM estimates</text>
+<text x='19.93' y='49.52' style='font-size: 12.00px;fill: #404040; font-family: "Avenir Next";' textLength='298.89px' lengthAdjust='spacingAndGlyphs'>International migration in the year ending each quarter</text>
+<text x='19.93' y='31.96' style='font-size: 17.00px; font-weight: 600;fill: #404040; font-family: "Avenir Next";' textLength='331.48px' lengthAdjust='spacingAndGlyphs'>Net migration fell after the EU referendum</text>
+</g>
 </g>
 </svg>

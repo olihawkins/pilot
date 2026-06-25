@@ -153,7 +153,7 @@ theme_pilot <- function (
     theme_pilot <- ggplot2::theme(
         plot.background = ggplot2::element_rect(
             fill = background_color,
-            size = 0),
+            linewidth = 0),
         plot.margin = ggplot2::margin(
             t = 20,
             r = 20,
@@ -259,7 +259,7 @@ theme_pilot <- function (
         legend.background = ggplot2::element_rect(
             color = NULL,
             fill = background_color,
-            size = 0),
+            linewidth = 0),
         legend.key = ggplot2::element_rect(
             color = background_color,
             fill = background_color),
@@ -284,7 +284,7 @@ theme_pilot <- function (
     # Axes
     axis_line <- ggplot2::element_line(
         color = axis_line_color,
-        size = 0.3,
+        linewidth = 0.3,
         linetype = "solid")
 
     if (stringr::str_detect(axes, "t")) {
@@ -318,7 +318,7 @@ theme_pilot <- function (
     # Gridlines
     grid_line <- ggplot2::element_line(
         color = grid_color,
-        size = 0.35,
+        linewidth = 0.35,
         linetype = "solid")
 
     if (stringr::str_detect(grid, "v")) {

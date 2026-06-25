@@ -32,7 +32,7 @@ plot <- ggplot(
             y = estimate,
             color = flow)) +
     # Add a line geometry to draw lines
-    geom_line(size = 1.1) +
+    geom_line(linewidth = 1.1) +
     # Set labels for the axes, legend, and caption, but don't set titles here
     labs(
         color = NULL,
